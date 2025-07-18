@@ -45,6 +45,30 @@ public class GmailToolService {
         return new SearchEmails(googleAuthService);
     }
 
+    @Bean
+    @Description("Moves an email to the trash.")
+    public java.util.function.Function<TrashEmail.Request, Boolean> trashEmail() {
+        return new TrashEmail(googleAuthService);
+    }
+
+    @Bean
+    @Description("Permanently deletes an email.")
+    public java.util.function.Function<DeleteEmail.Request, Boolean> deleteEmail() {
+        return new DeleteEmail(googleAuthService);
+    }
+
+    @Bean
+    @Description("Marks an email as read.")
+    public java.util.function.Function<MarkAsRead.Request, Boolean> markAsRead() {
+        return new MarkAsRead(googleAuthService);
+    }
+
+    @Bean
+    @Description("Marks an email as unread.")
+    public java.util.function.Function<MarkAsUnread.Request, Boolean> markAsUnread() {
+        return new MarkAsUnread(googleAuthService);
+    }
+
     private static class SendEmail implements java.util.function.Function<SendEmail.Request, Boolean> {
 
         private final GoogleAuthService googleAuthService;
@@ -107,10 +131,53 @@ public class GmailToolService {
             try {
                 Gmail gmail = googleAuthService.getGmailClient();
                 Message message = gmail.users().messages().get("me", request.messageId()).setFormat("full").execute();
-                return messageToEmail(message);
+                return new ReadEmail(googleAuthService).messageToEmail(message);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+        }
+        private Email messageToEmail(Message message) {
+            String from = "";
+            String to = "";
+            String subject = "";
+            String date = "";
+            if (message.getPayload() != null && message.getPayload().getHeaders() != null) {
+                for (var header : message.getPayload().getHeaders()) {
+                    if (header.getName().equals("From")) {
+                        from = header.getValue();
+                    }
+                    if (header.getName().equals("To")) {
+                        to = header.getValue();
+                    }
+                    if (header.getName().equals("Subject")) {
+                        subject = header.getValue();
+                    }
+                    if (header.getName().equals("Date")) {
+                        date = header.getValue();
+                    }
+                }
+            }
+
+            String snippet = message.getSnippet();
+            String bodyText = "";
+            String bodyHtml = "";
+
+            if (message.getPayload() != null) {
+                if (message.getPayload().getParts() != null) {
+                    for (var part : message.getPayload().getParts()) {
+                        if (part.getMimeType().equals("text/plain") && part.getBody() != null && part.getBody().getData() != null) {
+                            bodyText = new String(Base64.getUrlDecoder().decode(part.getBody().getData()));
+                        } else if (part.getMimeType().equals("text/html") && part.getBody() != null && part.getBody().getData() != null) {
+                            bodyHtml = new String(Base64.getUrlDecoder().decode(part.getBody().getData()));
+                        }
+                    }
+                } else if (message.getPayload().getBody() != null && message.getPayload().getBody().getData() != null) {
+                    bodyText = new String(Base64.getUrlDecoder().decode(message.getPayload().getBody().getData()));
+                }
+            }
+
+
+            return new Email(message.getId(), from, to, subject, snippet, date, bodyText, bodyHtml, java.util.Collections.emptyList());
         }
     }
 
@@ -136,7 +203,7 @@ public class GmailToolService {
                 return messages.stream().map(message -> {
                     try {
                         Message fullMessage = gmail.users().messages().get("me", message.getId()).setFormat("full").execute();
-                        return messageToEmail(fullMessage);
+                        return new ReadEmail(googleAuthService).messageToEmail(fullMessage);
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
@@ -147,47 +214,89 @@ public class GmailToolService {
         }
     }
 
-    private static Email messageToEmail(Message message) {
-        String from = "";
-        String to = "";
-        String subject = "";
-        String date = "";
-        if (message.getPayload() != null && message.getPayload().getHeaders() != null) {
-            for (var header : message.getPayload().getHeaders()) {
-                if (header.getName().equals("From")) {
-                    from = header.getValue();
-                }
-                if (header.getName().equals("To")) {
-                    to = header.getValue();
-                }
-                if (header.getName().equals("Subject")) {
-                    subject = header.getValue();
-                }
-                if (header.getName().equals("Date")) {
-                    date = header.getValue();
-                }
-            }
+    // ... existing messageToEmail implementation ...
+
+    private static class TrashEmail implements java.util.function.Function<TrashEmail.Request, Boolean> {
+        private final GoogleAuthService googleAuthService;
+
+        public TrashEmail(GoogleAuthService googleAuthService) {
+            this.googleAuthService = googleAuthService;
         }
 
-        String snippet = message.getSnippet();
-        String bodyText = "";
-        String bodyHtml = "";
+        public record Request(String messageId) {}
 
-        if (message.getPayload() != null) {
-            if (message.getPayload().getParts() != null) {
-                for (var part : message.getPayload().getParts()) {
-                    if (part.getMimeType().equals("text/plain") && part.getBody() != null && part.getBody().getData() != null) {
-                        bodyText = new String(Base64.getUrlDecoder().decode(part.getBody().getData()));
-                    } else if (part.getMimeType().equals("text/html") && part.getBody() != null && part.getBody().getData() != null) {
-                        bodyHtml = new String(Base64.getUrlDecoder().decode(part.getBody().getData()));
-                    }
-                }
-            } else if (message.getPayload().getBody() != null && message.getPayload().getBody().getData() != null) {
-                bodyText = new String(Base64.getUrlDecoder().decode(message.getPayload().getBody().getData()));
+        @Override
+        public Boolean apply(Request request) {
+            try {
+                Gmail gmail = googleAuthService.getGmailClient();
+                gmail.users().messages().trash("me", request.messageId()).execute();
+                return true;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
+    }
 
+    private static class DeleteEmail implements java.util.function.Function<DeleteEmail.Request, Boolean> {
+        private final GoogleAuthService googleAuthService;
 
-        return new Email(message.getId(), from, to, subject, snippet, date, bodyText, bodyHtml, java.util.Collections.emptyList());
+        public DeleteEmail(GoogleAuthService googleAuthService) {
+            this.googleAuthService = googleAuthService;
+        }
+
+        public record Request(String messageId) {}
+
+        @Override
+        public Boolean apply(Request request) {
+            try {
+                Gmail gmail = googleAuthService.getGmailClient();
+                gmail.users().messages().delete("me", request.messageId()).execute();
+                return true;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    private static class MarkAsRead implements java.util.function.Function<MarkAsRead.Request, Boolean> {
+        private final GoogleAuthService googleAuthService;
+
+        public MarkAsRead(GoogleAuthService googleAuthService) {
+            this.googleAuthService = googleAuthService;
+        }
+
+        public record Request(String messageId) {}
+
+        @Override
+        public Boolean apply(Request request) {
+            try {
+                Gmail gmail = googleAuthService.getGmailClient();
+                gmail.users().messages().modify("me", request.messageId(), new com.google.api.services.gmail.model.ModifyMessageRequest().setRemoveLabelIds(java.util.Collections.singletonList("UNREAD"))).execute();
+                return true;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    private static class MarkAsUnread implements java.util.function.Function<MarkAsUnread.Request, Boolean> {
+        private final GoogleAuthService googleAuthService;
+
+        public MarkAsUnread(GoogleAuthService googleAuthService) {
+            this.googleAuthService = googleAuthService;
+        }
+
+        public record Request(String messageId) {}
+
+        @Override
+        public Boolean apply(Request request) {
+            try {
+                Gmail gmail = googleAuthService.getGmailClient();
+                gmail.users().messages().modify("me", request.messageId(), new com.google.api.services.gmail.model.ModifyMessageRequest().setAddLabelIds(java.util.Collections.singletonList("UNREAD"))).execute();
+                return true;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 }
