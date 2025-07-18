@@ -75,7 +75,7 @@ public class GmailToolService {
         return new DownloadAttachment(googleAuthService);
     }
 
-    private static class SendEmail implements java.util.function.Function<SendEmail.Request, Boolean> {
+    public static class SendEmail implements java.util.function.Function<SendEmail.Request, Boolean> {
 
         private final GoogleAuthService googleAuthService;
 
@@ -137,7 +137,7 @@ public class GmailToolService {
         }
     }
 
-    private static class ReadEmail implements java.util.function.Function<ReadEmail.Request, Email> {
+    public static class ReadEmail implements java.util.function.Function<ReadEmail.Request, Email> {
 
         private final GoogleAuthService googleAuthService;
 
@@ -203,7 +203,7 @@ public class GmailToolService {
         }
     }
 
-    private static class SearchEmails implements java.util.function.Function<SearchEmails.Request, java.util.List<Email>> {
+    public static class SearchEmails implements java.util.function.Function<SearchEmails.Request, java.util.List<Email>> {
 
         private final GoogleAuthService googleAuthService;
 
@@ -238,7 +238,7 @@ public class GmailToolService {
 
     // ... existing messageToEmail implementation ...
 
-    private static class TrashEmail implements java.util.function.Function<TrashEmail.Request, Boolean> {
+    public static class TrashEmail implements java.util.function.Function<TrashEmail.Request, Boolean> {
         private final GoogleAuthService googleAuthService;
 
         public TrashEmail(GoogleAuthService googleAuthService) {
@@ -259,7 +259,7 @@ public class GmailToolService {
         }
     }
 
-    private static class DeleteEmail implements java.util.function.Function<DeleteEmail.Request, Boolean> {
+    public static class DeleteEmail implements java.util.function.Function<DeleteEmail.Request, Boolean> {
         private final GoogleAuthService googleAuthService;
 
         public DeleteEmail(GoogleAuthService googleAuthService) {
@@ -280,7 +280,7 @@ public class GmailToolService {
         }
     }
 
-    private static class MarkAsRead implements java.util.function.Function<MarkAsRead.Request, Boolean> {
+    public static class MarkAsRead implements java.util.function.Function<MarkAsRead.Request, Boolean> {
         private final GoogleAuthService googleAuthService;
 
         public MarkAsRead(GoogleAuthService googleAuthService) {
@@ -301,7 +301,7 @@ public class GmailToolService {
         }
     }
 
-    private static class MarkAsUnread implements java.util.function.Function<MarkAsUnread.Request, Boolean> {
+    public static class MarkAsUnread implements java.util.function.Function<MarkAsUnread.Request, Boolean> {
         private final GoogleAuthService googleAuthService;
 
         public MarkAsUnread(GoogleAuthService googleAuthService) {
@@ -322,7 +322,7 @@ public class GmailToolService {
         }
     }
 
-    private static class DownloadAttachment implements java.util.function.Function<DownloadAttachment.Request, Boolean> {
+    public static class DownloadAttachment implements java.util.function.Function<DownloadAttachment.Request, Boolean> {
         private final GoogleAuthService googleAuthService;
 
         public DownloadAttachment(GoogleAuthService googleAuthService) {
