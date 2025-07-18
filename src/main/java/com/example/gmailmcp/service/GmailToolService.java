@@ -69,6 +69,12 @@ public class GmailToolService {
         return new MarkAsUnread(googleAuthService);
     }
 
+    @Bean
+    @Description("Downloads an attachment to a local file path.")
+    public java.util.function.Function<DownloadAttachment.Request, Boolean> downloadAttachment() {
+        return new DownloadAttachment(googleAuthService);
+    }
+
     private static class SendEmail implements java.util.function.Function<SendEmail.Request, Boolean> {
 
         private final GoogleAuthService googleAuthService;
@@ -77,14 +83,14 @@ public class GmailToolService {
             this.googleAuthService = googleAuthService;
         }
 
-        public record Request(String to, String subject, String body) {
+        public record Request(String to, String subject, String body, java.util.List<String> attachmentPaths) {
         }
 
         @Override
         public Boolean apply(Request request) {
             try {
                 Gmail gmail = googleAuthService.getGmailClient();
-                MimeMessage mimeMessage = createEmail(request.to(), request.subject(), request.body());
+                MimeMessage mimeMessage = createEmail(request.to(), request.subject(), request.body(), request.attachmentPaths());
                 Message message = createMessageWithEmail(mimeMessage);
                 gmail.users().messages().send("me", message).execute();
                 return true;
@@ -93,14 +99,30 @@ public class GmailToolService {
             }
         }
 
-        private MimeMessage createEmail(String to, String subject, String bodyText) throws MessagingException {
+        private MimeMessage createEmail(String to, String subject, String bodyText, java.util.List<String> attachmentPaths) throws MessagingException {
             Properties props = new Properties();
             Session session = Session.getDefaultInstance(props, null);
             MimeMessage email = new MimeMessage(session);
             email.setFrom(new InternetAddress("me"));
             email.addRecipient(jakarta.mail.Message.RecipientType.TO, new InternetAddress(to));
             email.setSubject(subject);
-            email.setText(bodyText);
+
+            var multipart = new jakarta.mail.internet.MimeMultipart();
+            var textPart = new jakarta.mail.internet.MimeBodyPart();
+            textPart.setText(bodyText);
+            multipart.addBodyPart(textPart);
+
+            if (attachmentPaths != null) {
+                for (String attachmentPath : attachmentPaths) {
+                    var attachmentPart = new jakarta.mail.internet.MimeBodyPart();
+                    jakarta.activation.DataSource source = new jakarta.activation.FileDataSource(attachmentPath);
+                    attachmentPart.setDataHandler(new jakarta.activation.DataHandler(source));
+                    attachmentPart.setFileName(new java.io.File(attachmentPath).getName());
+                    multipart.addBodyPart(attachmentPart);
+                }
+            }
+
+            email.setContent(multipart);
             return email;
         }
 
@@ -293,6 +315,31 @@ public class GmailToolService {
             try {
                 Gmail gmail = googleAuthService.getGmailClient();
                 gmail.users().messages().modify("me", request.messageId(), new com.google.api.services.gmail.model.ModifyMessageRequest().setAddLabelIds(java.util.Collections.singletonList("UNREAD"))).execute();
+                return true;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    private static class DownloadAttachment implements java.util.function.Function<DownloadAttachment.Request, Boolean> {
+        private final GoogleAuthService googleAuthService;
+
+        public DownloadAttachment(GoogleAuthService googleAuthService) {
+            this.googleAuthService = googleAuthService;
+        }
+
+        public record Request(String messageId, String attachmentId, String savePath) {}
+
+        @Override
+        public Boolean apply(Request request) {
+            try {
+                Gmail gmail = googleAuthService.getGmailClient();
+                var attachment = gmail.users().messages().attachments().get("me", request.messageId(), request.attachmentId()).execute();
+                byte[] data = Base64.getUrlDecoder().decode(attachment.getData());
+                try (java.io.FileOutputStream fos = new java.io.FileOutputStream(request.savePath())) {
+                    fos.write(data);
+                }
                 return true;
             } catch (IOException e) {
                 throw new RuntimeException(e);
