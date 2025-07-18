@@ -33,6 +33,18 @@ public class GmailToolService {
         return new SendEmail(googleAuthService);
     }
 
+    @Bean
+    @Description("Reads the full content of a single email by its ID.")
+    public java.util.function.Function<ReadEmail.Request, Email> readEmail() {
+        return new ReadEmail(googleAuthService);
+    }
+
+    @Bean
+    @Description("Searches for emails using a Gmail query.")
+    public java.util.function.Function<SearchEmails.Request, java.util.List<Email>> searchEmails() {
+        return new SearchEmails(googleAuthService);
+    }
+
     private static class SendEmail implements java.util.function.Function<SendEmail.Request, Boolean> {
 
         private final GoogleAuthService googleAuthService;
@@ -77,5 +89,105 @@ public class GmailToolService {
             message.setRaw(encodedEmail);
             return message;
         }
+    }
+
+    private static class ReadEmail implements java.util.function.Function<ReadEmail.Request, Email> {
+
+        private final GoogleAuthService googleAuthService;
+
+        public ReadEmail(GoogleAuthService googleAuthService) {
+            this.googleAuthService = googleAuthService;
+        }
+
+        public record Request(String messageId) {
+        }
+
+        @Override
+        public Email apply(Request request) {
+            try {
+                Gmail gmail = googleAuthService.getGmailClient();
+                Message message = gmail.users().messages().get("me", request.messageId()).setFormat("full").execute();
+                return messageToEmail(message);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    private static class SearchEmails implements java.util.function.Function<SearchEmails.Request, java.util.List<Email>> {
+
+        private final GoogleAuthService googleAuthService;
+
+        public SearchEmails(GoogleAuthService googleAuthService) {
+            this.googleAuthService = googleAuthService;
+        }
+
+        public record Request(String query) {
+        }
+
+        @Override
+        public java.util.List<Email> apply(Request request) {
+            try {
+                Gmail gmail = googleAuthService.getGmailClient();
+                var messages = gmail.users().messages().list("me").setQ(request.query()).execute().getMessages();
+                if (messages == null) {
+                    return java.util.Collections.emptyList();
+                }
+                return messages.stream().map(message -> {
+                    try {
+                        Message fullMessage = gmail.users().messages().get("me", message.getId()).setFormat("full").execute();
+                        return messageToEmail(fullMessage);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }).collect(java.util.stream.Collectors.toList());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    private static Email messageToEmail(Message message) {
+        String from = "";
+        String to = "";
+        String subject = "";
+        String date = "";
+        if (message.getPayload() != null && message.getPayload().getHeaders() != null) {
+            for (var header : message.getPayload().getHeaders()) {
+                if (header.getName().equals("From")) {
+                    from = header.getValue();
+                }
+                if (header.getName().equals("To")) {
+                    to = header.getValue();
+                }
+                if (header.getName().equals("Subject")) {
+                    subject = header.getValue();
+                }
+                if (header.getName().equals("Date")) {
+                    date = header.getValue();
+                }
+            }
+        }
+
+        String snippet = message.getSnippet();
+        String bodyText = "";
+        String bodyHtml = "";
+
+        if (message.getPayload() != null) {
+            if (message.getPayload().getParts() != null) {
+                for (var part : message.getPayload().getParts()) {
+                    if (part.getMimeType().equals("text/plain") && part.getBody() != null && part.getBody().getData() != null) {
+                        bodyText = new String(Base64.getUrlDecoder().decode(part.getBody().getData()));
+                    } else if (part.getMimeType().equals("text/html") && part.getBody() != null && part.getBody().getData() != null) {
+                        bodyHtml = new String(Base64.getUrlDecoder().decode(part.getBody().getData()));
+                    }
+                }
+            } else if (message.getPayload().getBody() != null && message.getPayload().getBody().getData() != null) {
+                bodyText = new String(Base64.getUrlDecoder().decode(message.getPayload().getBody().getData()));
+            }
+        }
+
+
+        return new Email(message.getId(), from, to, subject, snippet, date, bodyText, bodyHtml, java.util.Collections.emptyList());
     }
 }
