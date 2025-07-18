@@ -7,6 +7,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.util.Base64;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
@@ -33,23 +34,25 @@ public class GmailToolServiceTest {
         var sendEmailFunction = gmailToolService.sendEmail();
         var request = new GmailToolService.SendEmail.Request("test@example.com", "Test Subject", "Test Body", null);
         sendEmailFunction.apply(request);
-        // TODO: Add verification
+        org.mockito.Mockito.verify(googleAuthService.getGmailClient().users().messages()).send(anyString(), any(com.google.api.services.gmail.model.Message.class));
     }
 
     @Test
     public void testReadEmail() throws Exception {
+        when(googleAuthService.getGmailClient().users().messages().get(anyString(), anyString()).execute()).thenReturn(new com.google.api.services.gmail.model.Message());
         var readEmailFunction = gmailToolService.readEmail();
         var request = new GmailToolService.ReadEmail.Request("testMessageId");
         readEmailFunction.apply(request);
-        // TODO: Add verification
+        org.mockito.Mockito.verify(googleAuthService.getGmailClient().users().messages()).get("me", "testMessageId");
     }
 
     @Test
     public void testSearchEmails() throws Exception {
+        when(googleAuthService.getGmailClient().users().messages().list(anyString()).execute()).thenReturn(new com.google.api.services.gmail.model.ListMessagesResponse());
         var searchEmailsFunction = gmailToolService.searchEmails();
         var request = new GmailToolService.SearchEmails.Request("test query");
         searchEmailsFunction.apply(request);
-        // TODO: Add verification
+        org.mockito.Mockito.verify(googleAuthService.getGmailClient().users().messages()).list("me");
     }
 
     @Test
@@ -57,7 +60,7 @@ public class GmailToolServiceTest {
         var trashEmailFunction = gmailToolService.trashEmail();
         var request = new GmailToolService.TrashEmail.Request("testMessageId");
         trashEmailFunction.apply(request);
-        // TODO: Add verification
+        org.mockito.Mockito.verify(googleAuthService.getGmailClient().users().messages()).trash("me", "testMessageId");
     }
 
     @Test
@@ -65,7 +68,7 @@ public class GmailToolServiceTest {
         var deleteEmailFunction = gmailToolService.deleteEmail();
         var request = new GmailToolService.DeleteEmail.Request("testMessageId");
         deleteEmailFunction.apply(request);
-        // TODO: Add verification
+        org.mockito.Mockito.verify(googleAuthService.getGmailClient().users().messages()).delete("me", "testMessageId");
     }
 
     @Test
@@ -73,7 +76,7 @@ public class GmailToolServiceTest {
         var markAsReadFunction = gmailToolService.markAsRead();
         var request = new GmailToolService.MarkAsRead.Request("testMessageId");
         markAsReadFunction.apply(request);
-        // TODO: Add verification
+        org.mockito.Mockito.verify(googleAuthService.getGmailClient().users().messages()).modify(anyString(), anyString(), any(com.google.api.services.gmail.model.ModifyMessageRequest.class));
     }
 
     @Test
@@ -81,7 +84,7 @@ public class GmailToolServiceTest {
         var markAsUnreadFunction = gmailToolService.markAsUnread();
         var request = new GmailToolService.MarkAsUnread.Request("testMessageId");
         markAsUnreadFunction.apply(request);
-        // TODO: Add verification
+        org.mockito.Mockito.verify(googleAuthService.getGmailClient().users().messages()).modify(anyString(), anyString(), any(com.google.api.services.gmail.model.ModifyMessageRequest.class));
     }
 
     @Test
@@ -93,6 +96,6 @@ public class GmailToolServiceTest {
         var downloadAttachmentFunction = gmailToolService.downloadAttachment();
         var request = new GmailToolService.DownloadAttachment.Request("testMessageId", "testAttachmentId", "test.txt");
         downloadAttachmentFunction.apply(request);
-        // TODO: Add verification
+        org.mockito.Mockito.verify(googleAuthService.getGmailClient().users().messages().attachments()).get("me", "testMessageId", "testAttachmentId");
     }
 }
