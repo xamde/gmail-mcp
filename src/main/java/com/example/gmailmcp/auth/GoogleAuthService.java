@@ -42,8 +42,11 @@ public class GoogleAuthService {
     private Credential getCredentials() throws IOException, GeneralSecurityException {
         final NetHttpTransport httpTransport = GoogleNetHttpTransport.newTrustedTransport();
 
-        GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY,
-                new InputStreamReader(new java.io.FileInputStream(credentialsFilePath)));
+        GoogleClientSecrets clientSecrets;
+        try (java.io.FileInputStream fileInputStream = new java.io.FileInputStream(credentialsFilePath);
+             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream)) {
+            clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, inputStreamReader);
+        }
 
         GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(
                 httpTransport, JSON_FACTORY, clientSecrets, SCOPES)
