@@ -357,7 +357,16 @@ public class GmailToolService {
                 Gmail gmail = googleAuthService.getGmailClient();
                 var attachment = gmail.users().messages().attachments().get("me", request.messageId(), request.attachmentId()).execute();
                 byte[] data = Base64.getUrlDecoder().decode(attachment.getData());
-                try (java.io.FileOutputStream fos = new java.io.FileOutputStream(request.savePath())) {
+                // Define a base directory for saving files
+                java.nio.file.Path baseDirectory = java.nio.file.Paths.get("/safe/base/directory");
+                java.nio.file.Path resolvedPath = baseDirectory.resolve(request.savePath()).normalize();
+
+                // Ensure the resolved path is within the base directory
+                if (!resolvedPath.startsWith(baseDirectory)) {
+                    throw new IllegalArgumentException("Invalid savePath: Directory traversal attempt detected.");
+                }
+
+                try (java.io.FileOutputStream fos = new java.io.FileOutputStream(resolvedPath.toFile())) {
                     fos.write(data);
                 }
                 return true;
