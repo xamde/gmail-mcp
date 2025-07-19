@@ -68,12 +68,12 @@ The project is broken down into four logical phases, each with a set of actionab
   - **Enhance readEmail:** The return object must be updated to include a list of attachments, where each item contains the attachmentId, filename, and sizeInBytes.
   - **New Tool downloadAttachment(String messageId, String attachmentId, String savePath):** Downloads a specific attachment to a local file path. The savePath must be validated to prevent directory traversal attacks.
   - **Acceptance Criteria:** An agent can "send an email to finance with the attached /invoices/inv-001.pdf" and "download the presentation from the last email from marketing to /downloads/".
-- [ ] **(Optional Stretch Goal) Calendar Integration**
+- [ ] **(Optional Stretch Goal) Calendar Integration** ([stub](src/main/java/com/example/gmailmcp/service/GoogleCalendarToolService.java))
   - **Task:** Create a new GoogleCalendarToolService to demonstrate powerful cross-service capabilities.
   - **New Tool createCalendarEvent(String summary, String startTime, String endTime, String description, List<String> attendees):** Creates a new event in the user's primary calendar, using RFC3339 format for timestamps (e.g., "2025-07-21T10:00:00-07:00").
   - **Rationale:** This demonstrates the true power of AI agents that can reason across different tools and data sources.
   - **Acceptance Criteria:** An agent can execute a complex command like "read the email about the project kickoff, find a 1-hour slot we're both free next week, and schedule a meeting with the summary in the description, inviting teammate@company.com".
-- [ ] **Robust Configuration & Usability**
+- [ ] **Robust Configuration & Usability** ([stub](src/main/java/com/example/gmailmcp/config/GoogleApiConfig.java))
   - **Task:** Refactor to improve the server's configuration, logging, and overall user experience.
   - **Logic:** Move all configurable values (server port, paths for credentials/tokens, API scopes, API timeouts, max search results) to application.yml with sensible, documented defaults.
   - **Logging:** Implement clear and helpful structured logging. Log successful authentications, tool invocations with parameters (scrubbing sensitive data like email bodies), and especially detailed errors from the Google API, including their specific error codes and messages to aid in debugging.
@@ -83,7 +83,7 @@ The project is broken down into four logical phases, each with a set of actionab
 
 **Goal:** Prepare the server for public consumption, ensuring it is easy to deploy, use, and understand.
 
-- [ ] **Containerization with Docker**
+- [ ] **Containerization with Docker** ([stub](Dockerfile))
   - **Task:** Create a Dockerfile and a .dockerignore file for easy deployment.
   - **Logic:** The Dockerfile must use a multi-stage build. The first stage uses a full JDK image (e.g., maven:3.9-eclipse-temurin-21) to build the application JAR. The final stage copies this JAR into a minimal JRE image (e.g., eclipse-temurin:21-jre-jammy) to create a small, secure final container. The Dockerfile should allow mounting volumes for the configuration directory and the tokens directory.
   - **Acceptance Criteria:** A user can run the fully configured server with a single, well-documented docker run command.
@@ -97,7 +97,7 @@ The project is broken down into four logical phases, each with a set of actionab
     - Clear examples of how to run the server (locally via java -jar and via Docker).
     - A copy-pasteable JSON snippet for configuring an MCP client like Claude Desktop to connect to the server.
   - **Acceptance Criteria:** The documentation is complete, professional, and enables a new user to get the server running successfully without any external assistance.
-- [ ] **Testing, Release, and Community Engagement**
+- [ ] **Testing, Release, and Community Engagement** ([stub for unit tests](src/test/java/com/example/gmailmcp/service/GmailToolServiceTest.java), [stub for integration tests](src/test/java/com/example/gmailmcp/service/GmailToolServiceIntegrationTest.java))
   - **Task:** Add a robust testing suite, perform end-to-end testing, and create the official v1.0.0 release.
   - **Testing:** Implement unit tests for tool services by mocking the GoogleAuthService. Create a separate integration test suite (e.g., using a @TestProfile) that can run against the real Google APIs if a user provides credentials.
   - **CI/CD:** Create a GitHub Actions workflow that automatically builds the project and runs the unit tests on every push.
