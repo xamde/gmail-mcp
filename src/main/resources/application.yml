@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+spring:
+  ai:
+    mcp:
+      enabled: true
+      path: /mcp/v1
+
+google:
+  api:
+    credentials-path: /path/to/your/client_secret.json
+    tokens-directory: /path/to/your/tokens
