@@ -1,0 +1,6 @@
+.git
+.idea
+target/
+credentials/
+tokens/
+gmail-mcp-server.log
