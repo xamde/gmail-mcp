@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.util.Base64;
 import java.util.Properties;
 
-@Configuration
+@Service
 public class GmailToolService {
 
     private final GoogleAuthService googleAuthService;
