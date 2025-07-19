@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+google:
+  credentials:
+    file:
+      path: credentials/client_secret.json
+  tokens:
+    directory:
+      path: tokens
+  api:
+    timeout: 60000
+    max-search-results: 25
