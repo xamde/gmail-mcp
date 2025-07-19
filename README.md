@@ -19,15 +19,11 @@ The project is broken down into four logical phases, each with a set of actionab
     - com.google.oauth-client:google-oauth-client-jetty: Provides a local, embedded server to handle the OAuth 2.0 redirect, which is essential for the "installed app" flow.
     - spring-boot-starter-actuator: To expose production-ready health and info endpoints.
   - **Acceptance Criteria:** The project builds successfully. A basic /actuator/health endpoint returns {"status":"UP"}, and the MCP server logs its startup on a configurable port.
-- [x] **Google Cloud Project Setup & Documentation**
-  - **Task:** Create a detailed, step-by-step guide in the README.md for users to configure their own Google Cloud Project. This is a critical onboarding step.
+- [x] **Project Setup & Documentation**
+  - **Task:** Create a detailed, step-by-step guide in the README.md for users to configure their GMail. This is a critical onboarding step.
   - **Details to Cover:**
-    1. Creating a new Google Cloud Project.
-    2. Navigating to "APIs & Services" -> "Enabled APIs & services" and enabling the "Gmail API" and "Google Calendar API" (for the stretch goal).
-    3. Configuring the OAuth Consent Screen: specifying the app name, user support email, and crucially, defining the required API scopes (e.g., https://www.googleapis.com/auth/gmail.modify, https://www.googleapis.com/auth/calendar.events).
-    4. Adding their own Google account to the "Test Users" list while the app is in testing mode.
-    5. Creating "OAuth 2.0 Client ID" credentials for a "Desktop app".
-    6. Downloading the client_secret.json file and explaining where to place it.
+    - Creating "OAuth 2.0 Client ID" credentials for a "Desktop app".
+    - Downloading the client_secret.json file and explaining where to place it.
   - **Acceptance Criteria:** A non-technical user can follow the guide from start to finish and successfully generate a valid client_secret.json file configured with the correct scopes.
 - [x] **Core Authentication Service (GoogleAuthService)**
   - **Task:** Develop a Spring @Service bean to encapsulate and manage the entire Google OAuth 2.0 flow. This service is the security backbone of the application.
@@ -107,3 +103,13 @@ The project is broken down into four logical phases, each with a set of actionab
   - **CI/CD:** Create a GitHub Actions workflow that automatically builds the project and runs the unit tests on every push.
   - **Release:** Perform final end-to-end testing with at least two different MCP Host applications (e.g., Claude Desktop, Cursor). Create a v1.0.0 release tag on GitHub with compiled binaries.
   - **Acceptance Criteria:** The server is published, announced, and the project is ready for community use and contributions.
+
+# Status
+To fully realize the vision of the README, the following items are still missing:
+
+- Robust Configuration & Usability: While basic configuration is in place, the server could be enhanced with more advanced configuration options, such as API timeouts and more detailed logging, as described in Issue #9.
+Containerization with Docker: A Dockerfile for easy deployment.
+
+- Testing, Release, and Community Engagement: A full testing suite, including integration tests, and a proper release process.
+
+- Additionally, the optional stretch goal of Calendar Integration has not been implemented.
