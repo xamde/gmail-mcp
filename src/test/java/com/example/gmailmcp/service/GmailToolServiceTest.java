@@ -11,6 +11,10 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
+// TODO: Implement more robust unit tests.
+// These tests should mock the GoogleAuthService and verify the logic of the tool functions.
+// For example, in testSendEmail, inspect the MimeMessage object to ensure the headers and body are set correctly.
+
 public class GmailToolServiceTest {
 
     @Mock
