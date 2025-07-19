@@ -237,8 +237,27 @@ public class GmailToolService {
         }
     }
 
-    // ... existing messageToEmail implementation ...
+    public Email messageToEmail(Message message) {
+        try {
+            String subject = message.getPayload().getHeaders().stream()
+                    .filter(header -> "Subject".equalsIgnoreCase(header.getName()))
+                    .map(header -> header.getValue())
+                    .findFirst()
+                    .orElse("No Subject");
 
+            String from = message.getPayload().getHeaders().stream()
+                    .filter(header -> "From".equalsIgnoreCase(header.getName()))
+                    .map(header -> header.getValue())
+                    .findFirst()
+                    .orElse("Unknown Sender");
+
+            String snippet = message.getSnippet();
+
+            return new Email(subject, from, snippet);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to convert message to email", e);
+        }
+    }
     public static class TrashEmail implements java.util.function.Function<TrashEmail.Request, Boolean> {
         private final GoogleAuthService googleAuthService;
 
