@@ -153,7 +153,7 @@ public class GmailToolService {
             try {
                 Gmail gmail = googleAuthService.getGmailClient();
                 Message message = gmail.users().messages().get("me", request.messageId()).setFormat("full").execute();
-                return new ReadEmail(googleAuthService).messageToEmail(message);
+                return this.messageToEmail(message);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
