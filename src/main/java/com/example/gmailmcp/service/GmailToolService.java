@@ -222,10 +222,11 @@ public class GmailToolService {
                 if (messages == null) {
                     return java.util.Collections.emptyList();
                 }
+                ReadEmail readEmail = new ReadEmail(googleAuthService);
                 return messages.stream().map(message -> {
                     try {
                         Message fullMessage = gmail.users().messages().get("me", message.getId()).setFormat("full").execute();
-                        return new ReadEmail(googleAuthService).messageToEmail(fullMessage);
+                        return readEmail.messageToEmail(fullMessage);
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
