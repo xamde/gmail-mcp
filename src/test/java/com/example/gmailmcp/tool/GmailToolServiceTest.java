@@ -1,6 +1,5 @@
 package com.example.gmailmcp.tool;
 
-import com.example.gmailmcp.auth.GoogleAuthService;
 import com.example.gmailmcp.service.GmailService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

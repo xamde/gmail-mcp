@@ -21,9 +21,11 @@ import java.util.Properties;
 public class GmailService {
 
     private final GoogleAuthService googleAuthService;
+    private final long maxSearchResults;
 
-    public GmailService(GoogleAuthService googleAuthService) {
+    public GmailService(GoogleAuthService googleAuthService, @Value("${google.api.max-search-results}") long maxSearchResults) {
         this.googleAuthService = googleAuthService;
+        this.maxSearchResults = maxSearchResults;
     }
 
     public void sendEmail(String to, String subject, String body, List<String> attachmentPaths) throws GeneralSecurityException, IOException, MessagingException {
@@ -79,9 +81,6 @@ public class GmailService {
         Gmail gmail = googleAuthService.getGmailClient();
         return gmail.users().messages().get("me", messageId).execute();
     }
-
-    @Value("${google.api.max-search-results}")
-    private long maxSearchResults;
 
     public List<Message> searchEmails(String query) throws GeneralSecurityException, IOException {
         Gmail gmail = googleAuthService.getGmailClient();

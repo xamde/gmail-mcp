@@ -33,8 +33,7 @@ public class GmailToolService {
         try {
             return gmailService.getEmail(messageId);
         } catch (GeneralSecurityException | IOException e) {
-            // In a real application, you would want to handle this error more gracefully
-            throw new RuntimeException(e);
+            throw new com.example.gmailmcp.exception.GmailToolException("Error reading email", e);
         }
     }
 
@@ -43,19 +42,27 @@ public class GmailToolService {
         try {
             return gmailService.searchEmails(query);
         } catch (GeneralSecurityException | IOException e) {
-            // In a real application, you would want to handle this error more gracefully
-            throw new RuntimeException(e);
+            throw new com.example.gmailmcp.exception.GmailToolException("Error searching emails", e);
         }
     }
 
     @Tool(name = "downloadAttachment", description = "Download an attachment")
     public String downloadAttachment(String messageId, String attachmentId, String savePath) {
         try {
+            validatePath(savePath);
             byte[] attachmentBytes = gmailService.getAttachment(messageId, attachmentId);
             java.nio.file.Files.write(java.nio.file.Paths.get(savePath), attachmentBytes);
             return "Attachment downloaded successfully to " + savePath;
         } catch (GeneralSecurityException | IOException e) {
-            return "Error downloading attachment: " + e.getMessage();
+            throw new com.example.gmailmcp.exception.GmailToolException("Error downloading attachment", e);
+        }
+    }
+
+    private void validatePath(String path) {
+        java.nio.file.Path savePath = java.nio.file.Paths.get(path).normalize();
+        java.nio.file.Path workingDir = java.nio.file.Paths.get("").toAbsolutePath();
+        if (!savePath.startsWith(workingDir)) {
+            throw new IllegalArgumentException("Invalid save path");
         }
     }
 }
