@@ -40,7 +40,7 @@ public class EmailConverter {
         List<LocalAttachment> attachments = getAttachmentsFromMessage(message);
         // ID is not available directly, it will be set later
         LocalEmail localEmail = new LocalEmail(null, from, subject, bodyText, sentDate, attachments);
-        log.info("Message converted to LocalEmail successfully.");
+        log.debug("Message converted to LocalEmail successfully.");
         return localEmail;
     }
 
