@@ -37,7 +37,7 @@ public class RepositoryService {
                     Path attachmentFile = attachmentsDir.resolve(attachment.filename());
                     Files.write(attachmentFile, attachment.content());
                 } catch (IOException e) {
-                    throw new IOException("Failed to write attachment '" + attachment.filename() + "' to file: " + attachmentsDir.resolve(attachment.filename()), e);
+                    throw new RuntimeException(e);
                 }
             });
         }
@@ -58,7 +58,7 @@ public class RepositoryService {
                             try {
                                 Files.delete(path);
                             } catch (IOException e) {
-                                throw new IOException("Failed to delete file: " + path + " during email deletion for emailId: " + emailId, e);
+                                throw new RuntimeException(e);
                             }
                         });
             }
