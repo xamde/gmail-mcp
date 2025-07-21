@@ -39,7 +39,7 @@ public class RepositoryService {
         Files.createDirectories(attachmentsDir);
 
         if (email.getAttachments() != null) {
-            for (var attachment : email.getAttachments()) {
+            for (Attachment attachment : email.getAttachments()) {
                 Path attachmentFile = attachmentsDir.resolve(attachment.filename());
                 Files.write(attachmentFile, attachment.content());
             }
