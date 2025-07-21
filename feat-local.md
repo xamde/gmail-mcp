@@ -1,5 +1,41 @@
 # local IMAP repository with search functionality
-Of course. To create a local IMAP repository with search functionality in Java, you'll primarily use two key libraries:
+
+Make a project plan for a junior developer.
+Aim for 10-15 features. 
+
+Clear Acceptance Criteria: Define precisely what "done" looks like for each task. Use a checklist format (e.g., "User can click X and see Y," "Data Z is saved to the database").
+
+Unit Tests: Each feature must be accompanied by a set of unit tests that the developer will need to write or pass. This reinforces a test-driven mindset from day one.
+
+Hints and Guidance:
+
+Complexity/Criticality: Highlight parts of the codebase that are complex, critical, or have non-obvious dependencies.
+
+Pointers to Codebase: Include links or references to specific files, modules, or functions they should look at.
+
+Suggested Approach: Briefly outline a potential way to tackle the problem without being overly prescriptive.
+
+Gradual Complexity: Please order the features so they ramp up in difficulty. The first few should be simple, isolated changes that build confidence. Deeper, more complex tasks should come later.
+
+Feature Background: For each feature, add a short sentence explaining why it's important. (e.g., "This feature is crucial for improving user navigation on the dashboard.")
+
+Documentation Links: Include links to relevant internal or external documentation, architectural diagrams, or even external articles/tutorials that might help them understand the concepts involved.
+
+## Goal
+We want to download a remote GMail account to a local IMAP repo.
+The GMail access has already been built.
+Now we need a local IMAP repository with search functionality in Java. Using two key libraries:
+
+1.  **Jakarta Mail (formerly JavaMail):** For connecting to the IMAP server and fetching emails.
+2.  **Apache Lucene:** For creating a powerful, local, full-text search index of the downloaded emails.
+
+The local repo should have a nice API for adding email, searching email. Attachments should be addable, retrievable, and searchable, too. We only need to index PDF attachments.
+
+
+
+## Background
+
+To create a local IMAP repository with search functionality in Java, you'll primarily use two key libraries:
 
 1.  **Jakarta Mail (formerly JavaMail):** For connecting to the IMAP server and fetching emails.
 2.  **Apache Lucene:** For creating a powerful, local, full-text search index of the downloaded emails.
