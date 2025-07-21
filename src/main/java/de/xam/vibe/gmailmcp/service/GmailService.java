@@ -3,10 +3,13 @@ package de.xam.vibe.gmailmcp.service;
 import de.xam.vibe.gmailmcp.auth.GoogleAuthService;
 import com.google.api.services.gmail.Gmail;
 import com.google.api.services.gmail.model.Message;
+import de.xam.vibe.gmailmcp.auth.GoogleAuthService;
 import jakarta.mail.MessagingException;
 import jakarta.mail.Session;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +23,7 @@ import java.util.Properties;
 @Service
 public class GmailService {
 
+    private static final Logger log = LoggerFactory.getLogger(GmailService.class);
     private final GoogleAuthService googleAuthService;
     private final long maxSearchResults;
 
@@ -29,10 +33,12 @@ public class GmailService {
     }
 
     public void sendEmail(String to, String subject, String body, List<String> attachmentPaths) throws GeneralSecurityException, IOException, MessagingException {
+        log.info("Sending email to: {}, subject: {}", to, subject);
         Gmail gmail = googleAuthService.getGmailClient();
         MimeMessage mimeMessage = createEmail(to, subject, body, attachmentPaths);
         Message message = createMessageWithEmail(mimeMessage);
         gmail.users().messages().send("me", message).execute();
+        log.info("Email sent successfully.");
     }
 
     private MimeMessage createEmail(String to, String subject, String bodyText, List<String> attachmentPaths) throws MessagingException, IOException {
@@ -78,16 +84,19 @@ public class GmailService {
     }
 
     public Message getEmail(String messageId) throws GeneralSecurityException, IOException {
+        log.info("Getting email with ID: {}", messageId);
         Gmail gmail = googleAuthService.getGmailClient();
         return gmail.users().messages().get("me", messageId).execute();
     }
 
     public List<Message> searchEmails(String query) throws GeneralSecurityException, IOException {
+        log.info("Searching emails with query: {}", query);
         Gmail gmail = googleAuthService.getGmailClient();
         return gmail.users().messages().list("me").setQ(query).setMaxResults(maxSearchResults).execute().getMessages();
     }
 
     public byte[] getAttachment(String messageId, String attachmentId) throws GeneralSecurityException, IOException {
+        log.info("Getting attachment with ID: {} from message: {}", attachmentId, messageId);
         Gmail gmail = googleAuthService.getGmailClient();
         return gmail.users().messages().attachments().get("me", messageId, attachmentId).execute().decodeData();
     }
