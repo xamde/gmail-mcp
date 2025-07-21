@@ -59,15 +59,16 @@ class GmailToolServiceTest {
     void downloadAttachment_shouldDownloadFile() throws GeneralSecurityException, IOException {
         String messageId = "testMessageId";
         String attachmentId = "testAttachmentId";
-        Path savePath = tempDir.resolve("test.txt");
+        String savePath = "test.txt";
         byte[] attachmentBytes = "Test Data".getBytes();
 
         when(gmailService.getAttachment(messageId, attachmentId)).thenReturn(attachmentBytes);
 
-        String result = gmailToolService.downloadAttachment(messageId, attachmentId, savePath.toString());
+        String result = gmailToolService.downloadAttachment(messageId, attachmentId, savePath);
 
         assertEquals("Attachment downloaded successfully to " + savePath, result);
-        assertArrayEquals(attachmentBytes, Files.readAllBytes(savePath));
+        assertArrayEquals(attachmentBytes, Files.readAllBytes(Path.of(savePath)));
+        Files.delete(Path.of(savePath));
     }
 
     @Test

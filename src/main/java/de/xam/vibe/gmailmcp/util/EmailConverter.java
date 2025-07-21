@@ -8,6 +8,8 @@ import jakarta.mail.Multipart;
 import jakarta.mail.Part;
 import jakarta.mail.internet.InternetAddress;
 import org.apache.commons.io.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.time.ZoneId;
@@ -24,7 +26,10 @@ import java.util.List;
  */
 public class EmailConverter {
 
+    private static final Logger log = LoggerFactory.getLogger(EmailConverter.class);
+
     public static LocalEmail toLocalEmail(Message message) throws MessagingException, IOException {
+        log.debug("Converting message to LocalEmail...");
         String from = "";
         if (message.getFrom() != null && message.getFrom().length > 0) {
             from = ((InternetAddress) message.getFrom()[0]).getAddress();
@@ -34,7 +39,9 @@ public class EmailConverter {
         String bodyText = getTextFromMessage(message);
         List<LocalAttachment> attachments = getAttachmentsFromMessage(message);
         // ID is not available directly, it will be set later
-        return new LocalEmail(null, from, subject, bodyText, sentDate, attachments);
+        LocalEmail localEmail = new LocalEmail(null, from, subject, bodyText, sentDate, attachments);
+        log.debug("Message converted to LocalEmail successfully.");
+        return localEmail;
     }
 
     private static String getTextFromMessage(Message message) throws MessagingException, IOException {
