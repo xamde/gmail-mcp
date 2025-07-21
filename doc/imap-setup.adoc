@@ -44,11 +44,11 @@ The search index is a Lucene index stored at the specified index path. It contai
 
 == Usage
 
-To use the local IMAP repository, you need to create an instance of the `com.example.gmailmcp.repository.LocalEmailRepository` class, providing the paths to the file repository and the search index.
+To use the local IMAP repository, you need to create an instance of the `de.xam.vibe.gmailmcp.repository.LocalEmailRepository` class, providing the paths to the file repository and the search index.
 
 [source,java]
 ----
-import com.example.gmailmcp.repository.LocalEmailRepository;
+import de.xam.vibe.gmailmcp.repository.LocalEmailRepository;
 import java.nio.file.Paths;
 
 // ...

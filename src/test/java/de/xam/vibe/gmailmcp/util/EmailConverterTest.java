@@ -28,7 +28,7 @@ public class EmailConverterTest {
         when(message.isMimeType("text/plain")).thenReturn(true);
         when(message.getContent()).thenReturn("Test Body");
 
-        LocalEmail localEmail = EmailConverter.toLocalEmail(message);
+        LocalEmail localEmail = EmailConverterJakarta.toLocalEmail(message);
 
         assertEquals("test@example.com", localEmail.getFrom());
         assertEquals("Test Subject", localEmail.getSubject());
@@ -57,7 +57,7 @@ public class EmailConverterTest {
         when(message.isMimeType("multipart/*")).thenReturn(true);
         when(message.getContent()).thenReturn(multipart);
 
-        LocalEmail localEmail = EmailConverter.toLocalEmail(message);
+        LocalEmail localEmail = EmailConverterJakarta.toLocalEmail(message);
 
         assertEquals("test@example.com", localEmail.getFrom());
         assertEquals("Test Subject", localEmail.getSubject());

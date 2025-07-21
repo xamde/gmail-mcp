@@ -3,3 +3,7 @@
 /tokens/
 /gmail-mcp-server.log
 .idea
+local-index
+local-repo
+logs
+gmail-mcp-server.iml

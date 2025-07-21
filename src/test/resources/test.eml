@@ -1,0 +1,29 @@
+From: sender@example.com
+To: receiver@example.com
+Subject: Test Email with Attachment
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="boundary123"
+
+--boundary123
+Content-Type: multipart/alternative; boundary="boundaryAlt"
+
+--boundaryAlt
+Content-Type: text/plain; charset="UTF-8"
+
+This is the plain text part.
+--boundaryAlt
+Content-Type: text/html; charset="UTF-8"
+
+<html><body><b>This is the HTML part.</b></body></html>
+--boundaryAlt--
+
+--boundary123
+Content-Type: application/pdf; name="sample.pdf"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="sample.pdf"
+
+JVBERi0xLjQKJcfsj6IKNSAwIG9iago8PC9UeXBlIC9QYWdlL1BhcmVudCA0IDAgUi9SZXNvdXJjZXMg
+PDwvRm9udCA8PC9GMSA2IDAgUj4+Pj4vTWVkaWFCb3hbMCAwIDU5NSA4NDJdL0NvbnRlbnRzIDYgMCBS
+L0dyb3VwPDwvUy9UcmFuc3BhcmVuY3kvQ1MvRGV2aWNlUkdCPj4+PgplbmRvYmoK
+--boundary123--
+

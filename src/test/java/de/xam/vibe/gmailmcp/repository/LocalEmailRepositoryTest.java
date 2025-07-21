@@ -1,6 +1,8 @@
 package de.xam.vibe.gmailmcp.repository;
 
 import de.xam.vibe.gmailmcp.model.LocalEmail;
+import de.xam.vibe.gmailmcp.util.EmailConverterGmail;
+import de.xam.vibe.gmailmcp.util.EmailConverterJakarta;
 import jakarta.mail.Message;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
@@ -15,14 +17,16 @@ import java.nio.file.Path;
 import java.util.Date;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static de.xam.vibe.gmailmcp.util.EmlToGmailConverter.createMessageFromEml;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class LocalEmailRepositoryTest {
 
-    @TempDir
-    Path tempDir;
+    @TempDir Path tempDir;
 
     private LocalEmailRepository localEmailRepository;
 
@@ -37,6 +41,27 @@ public class LocalEmailRepositoryTest {
     }
 
     @Test
+    public void testAddAndDeleteIntegration() throws jakarta.mail.MessagingException, IOException, ParseException {
+        Message message = mock(MimeMessage.class);
+        when(message.getFrom()).thenReturn(new InternetAddress[]{new InternetAddress("test@example.com")});
+        when(message.getSubject()).thenReturn("Test Subject");
+        when(message.getSentDate()).thenReturn(new Date());
+        when(message.isMimeType("text/plain")).thenReturn(true);
+        when(message.getContent()).thenReturn("Test Body");
+
+        localEmailRepository.add(EmailConverterJakarta.toLocalEmail(message));
+
+        List<String> ids = localEmailRepository.search("subject:Test");
+        assertEquals(1, ids.size());
+        String emailId = ids.getFirst();
+
+        localEmailRepository.delete(emailId);
+
+        ids = localEmailRepository.search("subject:Test");
+        assertTrue(ids.isEmpty());
+    }
+
+    @Test
     public void testAddAndSearchIntegration() throws jakarta.mail.MessagingException, IOException, ParseException {
         Message message = mock(MimeMessage.class);
         when(message.getFrom()).thenReturn(new InternetAddress[]{new InternetAddress("test@example.com")});
@@ -45,11 +70,11 @@ public class LocalEmailRepositoryTest {
         when(message.isMimeType("text/plain")).thenReturn(true);
         when(message.getContent()).thenReturn("Test Body");
 
-        localEmailRepository.add(message);
+        localEmailRepository.add(EmailConverterJakarta.toLocalEmail(message));
 
         List<String> ids = localEmailRepository.search("subject:Test");
         assertEquals(1, ids.size());
-        String emailId = ids.get(0);
+        String emailId = ids.getFirst();
 
         LocalEmail retrievedEmail = localEmailRepository.get(emailId);
         assertNotNull(retrievedEmail);
@@ -60,23 +85,12 @@ public class LocalEmailRepositoryTest {
     }
 
     @Test
-    public void testAddAndDeleteIntegration() throws jakarta.mail.MessagingException, IOException, ParseException {
-        Message message = mock(MimeMessage.class);
-        when(message.getFrom()).thenReturn(new InternetAddress[]{new InternetAddress("test@example.com")});
-        when(message.getSubject()).thenReturn("Test Subject");
-        when(message.getSentDate()).thenReturn(new Date());
-        when(message.isMimeType("text/plain")).thenReturn(true);
-        when(message.getContent()).thenReturn("Test Body");
+    public void testAddElmFile() throws Exception {
+        com.google.api.services.gmail.model.Message message = createMessageFromEml("./src/test/resources/test.eml");
 
-        localEmailRepository.add(message);
-
-        List<String> ids = localEmailRepository.search("subject:Test");
-        assertEquals(1, ids.size());
-        String emailId = ids.get(0);
-
-        localEmailRepository.delete(emailId);
-
-        ids = localEmailRepository.search("subject:Test");
-        assertTrue(ids.isEmpty());
+        // test saveEmail in repo with this message
+        LocalEmail localEmail = EmailConverterGmail.toLocalEmail(message);
+        localEmailRepository.add(localEmail);
     }
+
 }

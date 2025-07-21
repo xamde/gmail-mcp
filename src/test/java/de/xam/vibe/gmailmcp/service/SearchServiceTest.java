@@ -52,10 +52,11 @@ public class SearchServiceTest {
 
         try (IndexReader reader = DirectoryReader.open(FSDirectory.open(indexPath))) {
             assertEquals(1, reader.numDocs());
-            assertEquals("123", reader.document(0).get("id"));
-            assertEquals("test@example.com", reader.document(0).get("from"));
-            assertEquals("Test Subject", reader.document(0).get("subject"));
-            assertEquals("Test Body", reader.document(0).get("bodyText"));
+            var doc = reader.storedFields().document(0);
+            assertEquals("123", doc.get("id"));
+            assertEquals("test@example.com", doc.get("from"));
+            assertEquals("Test Subject", doc.get("subject"));
+            assertEquals("Test Body", doc.get("bodyText"));
         }
     }
 
@@ -67,10 +68,11 @@ public class SearchServiceTest {
 
         try (IndexReader reader = DirectoryReader.open(FSDirectory.open(indexPath))) {
             assertEquals(1, reader.numDocs());
-            assertEquals("456", reader.document(0).get("id"));
-            assertNull(reader.document(0).get("from"));
-            assertNull(reader.document(0).get("subject"));
-            assertNull(reader.document(0).get("bodyText"));
+            var doc = reader.storedFields().document(0);
+            assertEquals("456", doc.get("id"));
+            assertNull(doc.get("from"));
+            assertNull(doc.get("subject"));
+            assertNull(doc.get("bodyText"));
         }
     }
 
@@ -82,7 +84,7 @@ public class SearchServiceTest {
 
         List<String> ids = searchService.search("subject:Test");
         assertEquals(1, ids.size());
-        assertEquals("123", ids.get(0));
+        assertEquals("123", ids.getFirst());
     }
 
     @Test
@@ -93,7 +95,7 @@ public class SearchServiceTest {
 
         List<String> ids = searchService.search("bodyText:Body");
         assertEquals(1, ids.size());
-        assertEquals("123", ids.get(0));
+        assertEquals("123", ids.getFirst());
     }
 
     @Test
@@ -129,7 +131,7 @@ public class SearchServiceTest {
 
         List<String> ids = searchService.search("attachmentText:PDF");
         assertEquals(1, ids.size());
-        assertEquals("123", ids.get(0));
+        assertEquals("123", ids.getFirst());
     }
 
     @Test
@@ -160,7 +162,7 @@ public class SearchServiceTest {
 
         ids = searchService.search("subject:\"New Subject\"");
         assertEquals(1, ids.size());
-        assertEquals("123", ids.get(0));
+        assertEquals("123", ids.getFirst());
 
         ids = searchService.search("subject:\"Test Subject\"");
         assertTrue(ids.isEmpty());

@@ -16,7 +16,7 @@ import java.util.List;
  * A service that provides tools for interacting with the Gmail API.
  * This service is used by the Spring AI framework to expose the Gmail API as a tool that can be used by the model.
  *
- * @see com.example.gmailmcp.service.GmailService
+ * @see de.xam.vibe.gmailmcp.service.GmailService
  */
 @Service
 public class GmailToolService {

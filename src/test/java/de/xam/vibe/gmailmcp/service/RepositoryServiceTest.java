@@ -57,4 +57,21 @@ public class RepositoryServiceTest {
         repositoryService.deleteEmail("123");
         assertFalse(Files.exists(tempDir.resolve("123")));
     }
+
+    @Test
+    public void testSaveEmailWithUmlautAndSpaceInAttachmentFilename() throws IOException {
+        ZonedDateTime sentDate = ZonedDateTime.now();
+        String specialFilename = "Bestätigung_ A-123.pdf";
+        byte[] content = "dummy pdf content".getBytes();
+        List<LocalAttachment> attachments = new ArrayList<>();
+        attachments.add(new LocalAttachment(specialFilename, "application/pdf", content));
+        LocalEmail email = new LocalEmail("umlaut1", "from@example.com", "Subject", "Body", sentDate, attachments);
+
+        repositoryService.saveEmail(email);
+
+        Path attachmentPath = tempDir.resolve("umlaut1").resolve("attachments").resolve(specialFilename);
+        assertTrue(Files.exists(attachmentPath), "Attachment file with Umlaut and space should exist");
+        byte[] storedContent = Files.readAllBytes(attachmentPath);
+        assertArrayEquals(content, storedContent, "Attachment content should match");
+    }
 }

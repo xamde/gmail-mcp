@@ -33,8 +33,8 @@ import java.util.List;
  * This service is responsible for creating and maintaining the Lucene index,
  * and for providing search functionality.
  *
- * @see com.example.gmailmcp.model.LocalEmail
- * @see com.example.gmailmcp.repository.LocalEmailRepository
+ * @see de.xam.vibe.gmailmcp.model.LocalEmail
+ * @see de.xam.vibe.gmailmcp.repository.LocalEmailRepository
  */
 public class SearchService {
 

@@ -1,5 +1,10 @@
 server:
-  port: 8080
+  port: 7070
+
+local:
+  year: 2024
+  repo: ./local-repo
+  index: ./local-index
 
 google:
   credentials:
@@ -10,4 +15,5 @@ google:
       path: tokens
   api:
     timeout: 60000
-    max-search-results: 25
+    # max allowed per request
+    max-search-results: 500
