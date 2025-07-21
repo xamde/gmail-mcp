@@ -25,6 +25,14 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A service for indexing and searching emails using Apache Lucene.
+ * This service is responsible for creating and maintaining the Lucene index,
+ * and for providing search functionality.
+ *
+ * @see com.example.gmailmcp.model.LocalEmail
+ * @see com.example.gmailmcp.repository.LocalEmailRepository
+ */
 public class SearchService {
 
     private final Path indexPath;
