@@ -1,0 +1,61 @@
+= Local IMAP Repository Setup
+
+This document describes how to set up and use the local IMAP repository.
+
+== Overview
+
+The local IMAP repository stores emails and their attachments locally on your file system. It uses Apache Lucene to provide full-text search capabilities.
+
+== Data Storage
+
+The local repository consists of two main parts:
+
+1.  *File Repository:* This is where the actual emails and their attachments are stored.
+2.  *Search Index:* This is a Lucene index that allows for fast searching of emails.
+
+Both of these are created in the directory you specify when you create a `LocalEmailRepository` instance.
+
+=== File Repository Structure
+
+The file repository is structured as follows:
+
+----
+<repository-path>/
+|-- <email-id-1>/
+|   |-- message.json
+|   `-- attachments/
+|       |-- <attachment-1-filename>
+|       `-- <attachment-2-filename>
+|-- <email-id-2>/
+|   |-- message.json
+|   `-- attachments/
+|       `-- <attachment-1-filename>
+...
+----
+
+*   `<repository-path>`: The root directory of the file repository.
+*   `<email-id>`: A unique identifier for each email.
+*   `message.json`: A JSON file containing the metadata of the email (from, to, subject, body, etc.).
+*   `attachments/`: A directory containing all the attachments for the email.
+
+=== Search Index
+
+The search index is a Lucene index stored at the specified index path. It contains indexed data from the emails to allow for fast searching.
+
+== Usage
+
+To use the local IMAP repository, you need to create an instance of the `com.example.gmailmcp.repository.LocalEmailRepository` class, providing the paths to the file repository and the search index.
+
+[source,java]
+----
+import com.example.gmailmcp.repository.LocalEmailRepository;
+import java.nio.file.Paths;
+
+// ...
+
+Path repositoryPath = Paths.get("/path/to/your/repo");
+Path indexPath = Paths.get("/path/to/your/index");
+LocalEmailRepository localEmailRepository = new LocalEmailRepository(repositoryPath, indexPath);
+----
+
+You can then use the methods of the `LocalEmailRepository` to add, search, retrieve, and delete emails.
