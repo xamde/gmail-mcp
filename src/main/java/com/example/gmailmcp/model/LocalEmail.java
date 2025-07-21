@@ -13,6 +13,9 @@ public class LocalEmail {
     private ZonedDateTime sentDate;
     private List<LocalAttachment> attachments;
 
+    public LocalEmail() {
+    }
+
     public LocalEmail(String id, String from, String subject, String bodyText, ZonedDateTime sentDate, List<LocalAttachment> attachments) {
         this.id = id;
         this.from = from;
