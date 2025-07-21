@@ -37,7 +37,7 @@ public class RepositoryService {
                     Path attachmentFile = attachmentsDir.resolve(attachment.filename());
                     Files.write(attachmentFile, attachment.content());
                 } catch (IOException e) {
-                    throw new RuntimeException(e);
+                    throw new IOException("Failed to write attachment '" + attachment.filename() + "' to file: " + attachmentsDir.resolve(attachment.filename()), e);
                 }
             });
         }
