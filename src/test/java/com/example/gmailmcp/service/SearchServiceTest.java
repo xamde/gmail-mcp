@@ -13,6 +13,7 @@ import org.junit.jupiter.api.io.TempDir;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -39,7 +40,7 @@ public class SearchServiceTest {
     @Test
     public void testAddEmail_AddsDocumentWithCorrectFields() throws IOException {
         ZonedDateTime sentDate = ZonedDateTime.now();
-        LocalEmail email = new LocalEmail("123", "test@example.com", "Test Subject", "Test Body", sentDate);
+        LocalEmail email = new LocalEmail("123", "test@example.com", "Test Subject", "Test Body", sentDate, new ArrayList<>());
         searchService.addEmail(email);
 
         try (IndexReader reader = DirectoryReader.open(FSDirectory.open(indexPath))) {
@@ -54,7 +55,7 @@ public class SearchServiceTest {
     @Test
     public void testAddEmail_HandlesNullFieldsGracefully() throws IOException {
         ZonedDateTime sentDate = ZonedDateTime.now();
-        LocalEmail email = new LocalEmail("456", null, null, null, sentDate);
+        LocalEmail email = new LocalEmail("456", null, null, null, sentDate, new ArrayList<>());
         assertDoesNotThrow(() -> searchService.addEmail(email));
 
         try (IndexReader reader = DirectoryReader.open(FSDirectory.open(indexPath))) {
@@ -69,7 +70,7 @@ public class SearchServiceTest {
     @Test
     public void testSearch_FindsExistingEmailBySubject() throws IOException, ParseException {
         ZonedDateTime sentDate = ZonedDateTime.now();
-        LocalEmail email = new LocalEmail("123", "test@example.com", "Test Subject", "Test Body", sentDate);
+        LocalEmail email = new LocalEmail("123", "test@example.com", "Test Subject", "Test Body", sentDate, new ArrayList<>());
         searchService.addEmail(email);
 
         List<String> ids = searchService.search("subject:Test");
@@ -80,7 +81,7 @@ public class SearchServiceTest {
     @Test
     public void testSearch_FindsExistingEmailByBody() throws IOException, ParseException {
         ZonedDateTime sentDate = ZonedDateTime.now();
-        LocalEmail email = new LocalEmail("123", "test@example.com", "Test Subject", "Test Body", sentDate);
+        LocalEmail email = new LocalEmail("123", "test@example.com", "Test Subject", "Test Body", sentDate, new ArrayList<>());
         searchService.addEmail(email);
 
         List<String> ids = searchService.search("bodyText:Body");
@@ -91,7 +92,7 @@ public class SearchServiceTest {
     @Test
     public void testSearch_ReturnsEmptyListForNoMatches() throws IOException, ParseException {
         ZonedDateTime sentDate = ZonedDateTime.now();
-        LocalEmail email = new LocalEmail("123", "test@example.com", "Test Subject", "Test Body", sentDate);
+        LocalEmail email = new LocalEmail("123", "test@example.com", "Test Subject", "Test Body", sentDate, new ArrayList<>());
         searchService.addEmail(email);
 
         List<String> ids = searchService.search("subject:NonExistent");

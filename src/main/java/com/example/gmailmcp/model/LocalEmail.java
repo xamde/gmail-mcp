@@ -2,6 +2,8 @@ package com.example.gmailmcp.model;
 
 import java.time.ZonedDateTime;
 
+import java.util.List;
+
 public class LocalEmail {
 
     private String id;
@@ -9,13 +11,15 @@ public class LocalEmail {
     private String subject;
     private String bodyText;
     private ZonedDateTime sentDate;
+    private List<LocalAttachment> attachments;
 
-    public LocalEmail(String id, String from, String subject, String bodyText, ZonedDateTime sentDate) {
+    public LocalEmail(String id, String from, String subject, String bodyText, ZonedDateTime sentDate, List<LocalAttachment> attachments) {
         this.id = id;
         this.from = from;
         this.subject = subject;
         this.bodyText = bodyText;
         this.sentDate = sentDate;
+        this.attachments = attachments;
     }
 
     public String getId() {
@@ -56,5 +60,13 @@ public class LocalEmail {
 
     public void setSentDate(ZonedDateTime sentDate) {
         this.sentDate = sentDate;
+    }
+
+    public List<LocalAttachment> getAttachments() {
+        return attachments;
+    }
+
+    public void setAttachments(List<LocalAttachment> attachments) {
+        this.attachments = attachments;
     }
 }
