@@ -29,7 +29,7 @@ public class EmailConverter {
     private static final Logger log = LoggerFactory.getLogger(EmailConverter.class);
 
     public static LocalEmail toLocalEmail(Message message) throws MessagingException, IOException {
-        log.info("Converting message to LocalEmail...");
+        log.debug("Converting message to LocalEmail...");
         String from = "";
         if (message.getFrom() != null && message.getFrom().length > 0) {
             from = ((InternetAddress) message.getFrom()[0]).getAddress();
