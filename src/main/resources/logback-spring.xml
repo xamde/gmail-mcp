@@ -37,7 +37,7 @@
         <appender-ref ref="Console" />
     </root>
 
-    <!-- LOG "com.baeldung*" at TRACE level -->
+    <!-- LOG "de.xam.vibe.gmailmcp" at TRACE level -->
     <logger name="de.xam.vibe.gmailmcp" level="trace" additivity="false">
         <appender-ref ref="RollingFile" />
         <appender-ref ref="Console" />
