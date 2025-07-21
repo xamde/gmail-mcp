@@ -15,6 +15,13 @@ import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A utility class to convert Jakarta Mail {@link jakarta.mail.Message} objects to {@link com.example.gmailmcp.model.LocalEmail} objects.
+ * This class is responsible for extracting the relevant information from a `Message` and creating a `LocalEmail` object.
+ *
+ * @see com.example.gmailmcp.model.LocalEmail
+ * @see com.example.gmailmcp.model.LocalAttachment
+ */
 public class EmailConverter {
 
     public static LocalEmail toLocalEmail(Message message) throws MessagingException, IOException {

@@ -12,6 +12,14 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * A facade class for the local email repository.
+ * This class provides a simple API for interacting with the repository, hiding the underlying complexity of the
+ * {@link com.example.gmailmcp.service.RepositoryService} and {@link com.example.gmailmcp.service.SearchService}.
+ *
+ * @see com.example.gmailmcp.service.RepositoryService
+ * @see com.example.gmailmcp.service.SearchService
+ */
 public class LocalEmailRepository {
 
     private final RepositoryService repositoryService;

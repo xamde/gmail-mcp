@@ -10,6 +10,13 @@ import java.nio.file.Path;
 import java.util.Comparator;
 import java.util.stream.Stream;
 
+/**
+ * A service for storing and retrieving emails from the local file system.
+ * This service is responsible for saving the email metadata as a JSON file and the attachments as raw files.
+ *
+ * @see com.example.gmailmcp.model.LocalEmail
+ * @see com.example.gmailmcp.repository.LocalEmailRepository
+ */
 public class RepositoryService {
 
     private final Path repositoryPath;

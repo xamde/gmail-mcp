@@ -4,6 +4,15 @@ import java.time.ZonedDateTime;
 
 import java.util.List;
 
+/**
+ * Represents an email message stored locally.
+ * This class is a Plain Old Java Object (POJO) that is used to decouple the application from the Jakarta Mail library.
+ * It is used by the {@link com.example.gmailmcp.service.RepositoryService} to store emails and by the
+ * {@link com.example.gmailmcp.service.SearchService} to index them.
+ *
+ * @see com.example.gmailmcp.model.LocalAttachment
+ * @see com.example.gmailmcp.util.EmailConverter
+ */
 public class LocalEmail {
 
     private String id;

@@ -10,6 +10,12 @@ import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.util.List;
 
+/**
+ * A service that provides tools for interacting with the Gmail API.
+ * This service is used by the Spring AI framework to expose the Gmail API as a tool that can be used by the model.
+ *
+ * @see com.example.gmailmcp.service.GmailService
+ */
 @Service
 public class GmailToolService {
 
