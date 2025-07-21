@@ -31,7 +31,7 @@ public class GmailToolService {
             gmailService.sendEmail(to, subject, body, attachmentPaths);
             return "Email sent successfully";
         } catch (GeneralSecurityException | IOException | jakarta.mail.MessagingException e) {
-            return "Error sending email: " + e.getMessage();
+            throw new GmailToolException("Error sending email", e);
         }
     }
 
@@ -67,10 +67,16 @@ public class GmailToolService {
 
     private void validatePath(String path) {
         try {
-            java.nio.file.Path workingDir = java.nio.file.Paths.get("").toAbsolutePath().normalize();
-            java.nio.file.Path savePath = workingDir.resolve(path).normalize();
-            if (!savePath.startsWith(workingDir) || !savePath.toFile().getCanonicalPath().startsWith(workingDir.toFile().getCanonicalPath())) {
-                throw new IllegalArgumentException("Invalid save path");
+            java.nio.file.Path workingDir = java.nio.file.Paths.get("").toAbsolutePath();
+            java.nio.file.Path savePath = workingDir.resolve(path).toAbsolutePath().normalize();
+
+            if (!savePath.startsWith(workingDir)) {
+                throw new IllegalArgumentException("Invalid save path. Path is outside of the working directory.");
+            }
+
+            // Additional check for symbolic links and other file system tricks
+            if (!savePath.toFile().getCanonicalPath().startsWith(workingDir.toFile().getCanonicalPath())) {
+                throw new IllegalArgumentException("Invalid save path. Canonical path is outside of the working directory.");
             }
         } catch (IOException e) {
             throw new IllegalArgumentException("Invalid save path", e);
