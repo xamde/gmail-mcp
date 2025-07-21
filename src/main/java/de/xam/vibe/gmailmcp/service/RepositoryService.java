@@ -39,14 +39,10 @@ public class RepositoryService {
         Files.createDirectories(attachmentsDir);
 
         if (email.getAttachments() != null) {
-            email.getAttachments().forEach(attachment -> {
-                try {
-                    Path attachmentFile = attachmentsDir.resolve(attachment.filename());
-                    Files.write(attachmentFile, attachment.content());
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            });
+            for (Attachment attachment : email.getAttachments()) {
+                Path attachmentFile = attachmentsDir.resolve(attachment.filename());
+                Files.write(attachmentFile, attachment.content());
+            }
         }
     }
 
@@ -65,7 +61,8 @@ public class RepositoryService {
                             try {
                                 Files.delete(path);
                             } catch (IOException e) {
-                                throw new RuntimeException(e);
+                                // Log the exception or handle it more gracefully
+                                System.err.println("Failed to delete file: " + path);
                             }
                         });
             }
