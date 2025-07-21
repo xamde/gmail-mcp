@@ -3,7 +3,6 @@ package de.xam.vibe.gmailmcp.service;
 import de.xam.vibe.gmailmcp.auth.GoogleAuthService;
 import com.google.api.services.gmail.Gmail;
 import com.google.api.services.gmail.model.Message;
-import de.xam.vibe.gmailmcp.auth.GoogleAuthService;
 import jakarta.mail.MessagingException;
 import jakarta.mail.Session;
 import jakarta.mail.internet.InternetAddress;
