@@ -58,7 +58,7 @@ public class RepositoryService {
                             try {
                                 Files.delete(path);
                             } catch (IOException e) {
-                                throw new RuntimeException(e);
+                                throw new IOException("Failed to delete file: " + path + " during email deletion for emailId: " + emailId, e);
                             }
                         });
             }
