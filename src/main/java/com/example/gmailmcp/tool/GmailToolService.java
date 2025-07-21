@@ -59,10 +59,14 @@ public class GmailToolService {
     }
 
     private void validatePath(String path) {
-        java.nio.file.Path workingDir = java.nio.file.Paths.get("").toAbsolutePath().normalize();
-        java.nio.file.Path savePath = workingDir.resolve(path).normalize();
-        if (!savePath.startsWith(workingDir) || !savePath.toFile().getCanonicalPath().startsWith(workingDir.toFile().getCanonicalPath())) {
-            throw new IllegalArgumentException("Invalid save path");
+        try {
+            java.nio.file.Path workingDir = java.nio.file.Paths.get("").toAbsolutePath().normalize();
+            java.nio.file.Path savePath = workingDir.resolve(path).normalize();
+            if (!savePath.startsWith(workingDir) || !savePath.toFile().getCanonicalPath().startsWith(workingDir.toFile().getCanonicalPath())) {
+                throw new IllegalArgumentException("Invalid save path");
+            }
+        } catch (IOException e) {
+            throw new IllegalArgumentException("Invalid save path", e);
         }
     }
 }
