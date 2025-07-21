@@ -23,9 +23,7 @@ public class EmailConverter {
             from = ((InternetAddress) message.getFrom()[0]).getAddress();
         }
         String subject = message.getSubject();
-        ZonedDateTime sentDate = message.getSentDate() != null
-                ? message.getSentDate().toInstant().atZone(ZoneId.systemDefault())
-                : null;
+        ZonedDateTime sentDate = message.getSentDate().toInstant().atZone(ZoneId.systemDefault());
         String bodyText = getTextFromMessage(message);
         List<LocalAttachment> attachments = getAttachmentsFromMessage(message);
         // ID is not available directly, it will be set later
