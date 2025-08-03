@@ -101,7 +101,8 @@ public class GmailService {
                 String nextPageToken = res.getNextPageToken();
                 res = gmail.users().messages().list("me").setQ(query).setPageToken(nextPageToken).setMaxResults(maxSearchResults).execute();
             }
-            messages.addAll(res.getMessages());
+            if(res.getMessages()!=null)
+                messages.addAll(res.getMessages());
             return messages;
         } catch (com.google.api.client.http.HttpResponseException e) {
             int statusCode = e.getStatusCode();
