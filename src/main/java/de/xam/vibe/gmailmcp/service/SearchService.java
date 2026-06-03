@@ -121,6 +121,9 @@ public class SearchService {
                     try (PDDocument pdfDocument = Loader.loadPDF(attachment.content())) {
                         String text = new PDFTextStripper().getText(pdfDocument);
                         doc.add(new TextField("attachmentText", text, Field.Store.NO));
+                    } catch (IOException e) {
+                        log.warn("Failed to extract text from PDF attachment '{}' on email {}: {}",
+                                attachment.filename(), email.getId(), e.getMessage());
                     }
                 }
             }

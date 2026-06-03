@@ -89,7 +89,8 @@ public class GmailService {
         List<Message> messages = new ArrayList<>();
 
         try {
-            ListMessagesResponse res = gmail.users().messages().list("me").setQ(query).setMaxResults(maxSearchResults).execute();
+            Gmail.Users.Messages.List gmailQuery = gmail.users().messages().list("me").setQ(query).setMaxResults(maxSearchResults);
+            ListMessagesResponse res = gmailQuery.execute();
 
             Long resultSizeEstimate = res.getResultSizeEstimate();
             if (resultSizeEstimate != null && resultSizeEstimate > 2000) {

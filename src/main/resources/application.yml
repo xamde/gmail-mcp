@@ -9,7 +9,7 @@ local:
 google:
   credentials:
     file:
-      path: credentials/client_secret.json
+      path: '/Users/maxvolkel/__max/Finanzen/2024/credentials/client_secret.json'
   tokens:
     directory:
       path: tokens

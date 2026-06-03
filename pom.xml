@@ -5,7 +5,7 @@
 
     <groupId>de.xam.vibe.gmailmcp</groupId>
     <artifactId>gmail-mcp-server</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
 
     <name>gmail-mcp-server</name>
@@ -14,7 +14,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.0</version>
+        <version>3.5.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -33,14 +33,36 @@
         <dependency><groupId>org.apache.lucene</groupId><artifactId>lucene-queryparser</artifactId><version>10.2.2</version></dependency>
         <dependency><groupId>org.apache.pdfbox</groupId><artifactId>pdfbox</artifactId><version>3.0.2</version></dependency>
         <dependency><groupId>org.jsoup</groupId><artifactId>jsoup</artifactId><version>1.21.1</version></dependency>
-        <dependency><groupId>org.springframework.ai</groupId><artifactId>spring-ai-mcp</artifactId><version>1.0.0</version></dependency>
-        <dependency><groupId>org.springframework.ai</groupId><artifactId>spring-ai-starter-mcp-server-webmvc</artifactId><version>1.0.0</version></dependency>
+        <dependency><groupId>org.springframework.ai</groupId><artifactId>spring-ai-mcp</artifactId><version>1.1.2</version></dependency>
+        <dependency><groupId>org.springframework.ai</groupId><artifactId>spring-ai-starter-mcp-server-webmvc</artifactId><version>1.1.2</version>
+            <exclusions>
+                <exclusion><groupId>ch.qos.logback</groupId><artifactId>logback-classic</artifactId></exclusion>
+                <exclusion><groupId>org.springframework</groupId><artifactId>spring-beans</artifactId></exclusion>
+                <exclusion><groupId>org.springframework</groupId><artifactId>spring-core</artifactId></exclusion>
+                <exclusion><groupId>org.apache.tomcat.embed</groupId><artifactId>tomcat-embed-core</artifactId></exclusion>
+                <exclusion><groupId>org.springframework</groupId><artifactId>spring-webmvc</artifactId></exclusion>
+            </exclusions>
+        </dependency>
+        <dependency><groupId>ch.qos.logback</groupId><artifactId>logback-classic</artifactId><version>1.5.21</version></dependency>
         <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-actuator</artifactId></dependency>
-        <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-web</artifactId></dependency>
+        <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion><groupId>org.springframework</groupId><artifactId>spring-beans</artifactId></exclusion>
+                <exclusion><groupId>org.springframework</groupId><artifactId>spring-core</artifactId></exclusion>
+                <exclusion><groupId>org.apache.tomcat.embed</groupId><artifactId>tomcat-embed-core</artifactId></exclusion>
+                <exclusion><groupId>org.springframework</groupId><artifactId>spring-webmvc</artifactId></exclusion>
+            </exclusions>
+        </dependency>
+        <dependency><groupId>org.springframework</groupId><artifactId>spring-beans</artifactId><version>6.2.10</version></dependency>
+        <dependency><groupId>org.springframework</groupId><artifactId>spring-core</artifactId><version>6.2.11</version></dependency>
+        <dependency><groupId>org.springframework</groupId><artifactId>spring-webmvc</artifactId><version>6.2.10</version></dependency>
+        <dependency><groupId>org.apache.tomcat.embed</groupId><artifactId>tomcat-embed-core</artifactId><version>11.0.12</version></dependency>
+
         <!-- runtime -->
-        <dependency><groupId>org.eclipse.angus</groupId><artifactId>angus-mail</artifactId><version>2.0.3</version><scope>runtime</scope></dependency>
+        <dependency><groupId>org.eclipse.angus</groupId><artifactId>angus-mail</artifactId><version>2.0.4</version><scope>runtime</scope></dependency>
         <!-- test -->
         <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-test</artifactId><scope>test</scope></dependency>
+        <dependency><groupId>com.google.truth</groupId><artifactId>truth</artifactId><version>1.4.4</version></dependency>
     </dependencies>
 
     <dependencyManagement>
@@ -60,6 +82,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>de.xam.vibe.gmailmcp.GmailMcpApplication</mainClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>

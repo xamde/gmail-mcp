@@ -18,7 +18,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.security.GeneralSecurityException;
 import java.util.Collections;
@@ -40,6 +39,28 @@ public class GoogleAuthService {
 
     @Value("${google.api.timeout}")
     private int timeout;
+    private Gmail gmailClient;
+
+    public Gmail getGmailClient() throws GeneralSecurityException, IOException {
+        if (this.gmailClient == null) {
+            log.info("Getting Gmail client...");
+            try {
+                Credential credential = getCredentials();
+                final NetHttpTransport httpTransport = GoogleNetHttpTransport.newTrustedTransport();
+                Gmail client = new Gmail.Builder(httpTransport, JSON_FACTORY, request -> {
+                    credential.initialize(request);
+                    request.setConnectTimeout(timeout);
+                    request.setReadTimeout(timeout);
+                }).setApplicationName(APPLICATION_NAME).build();
+                log.info("Gmail client created successfully.");
+                this.gmailClient = client;
+            } catch (GeneralSecurityException | IOException e) {
+                log.error("Failed to create Gmail client", e);
+                throw e;
+            }
+        }
+        return gmailClient;
+    }
 
     private Credential getCredentials() throws IOException, GeneralSecurityException {
         log.info("Getting credentials...");
@@ -66,21 +87,4 @@ public class GoogleAuthService {
         return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
     }
 
-    public Gmail getGmailClient() throws GeneralSecurityException, IOException {
-        log.info("Getting Gmail client...");
-        try {
-            Credential credential = getCredentials();
-            final NetHttpTransport httpTransport = GoogleNetHttpTransport.newTrustedTransport();
-            Gmail client = new Gmail.Builder(httpTransport, JSON_FACTORY, request -> {
-                credential.initialize(request);
-                request.setConnectTimeout(timeout);
-                request.setReadTimeout(timeout);
-            }).setApplicationName(APPLICATION_NAME).build();
-            log.info("Gmail client created successfully.");
-            return client;
-        } catch (GeneralSecurityException | IOException e) {
-            log.error("Failed to create Gmail client", e);
-            throw e;
-        }
-    }
 }

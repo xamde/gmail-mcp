@@ -57,7 +57,7 @@
 2.  **Core Authentication Service (GoogleAuthService)**
     *   **Goal:** Create a Spring service to manage the Google OAuth 2.0 flow.
     *   **Implementation Comments:**
-        *   Create a `GoogleAuthService` class annotated with `@Service`.
+        *   Create a `GoogleAuthService` class base with `@Service`.
         *   Implement the logic to:
             *   Load the `client_secret.json` file from a configurable file path.
             *   Use a `FileDataStoreFactory` to persist the user's refresh token in a configurable directory.
@@ -123,7 +123,7 @@
 2.  **Create `GmailToolService`**
     *   **Goal:** Create the `GmailToolService` that will contain the MCP tools.
     *   **Implementation Comments:**
-        *   Create a `GmailToolService` class annotated with `@Service`.
+        *   Create a `GmailToolService` class base with `@Service`.
         *   Inject the `GmailService` from Phase 3.
     *   **How to Test:**
         *   **Input:** Run the application.
@@ -140,7 +140,7 @@
 1.  **Implement `sendEmail` Tool**
     *   **Goal:** Create an MCP tool to send emails.
     *   **Implementation Comments:**
-        *   Create a `sendEmail` method in `GmailToolService` annotated with `@Tool`.
+        *   Create a `sendEmail` method in `GmailToolService` base with `@Tool`.
         *   This method will call the `sendEmail` method from the `GmailService`.
     *   **How to Test:**
         *   **Input:** Use an MCP client to call the `sendEmail` tool with valid parameters.
@@ -149,7 +149,7 @@
 2.  **Implement `readEmail` and `searchEmails` Tools**
     *   **Goal:** Create MCP tools to read and search for emails.
     *   **Implementation Comments:**
-        *   Create `readEmail(String messageId)` and `searchEmails(String query)` methods in `GmailToolService` annotated with `@Tool`.
+        *   Create `readEmail(String messageId)` and `searchEmails(String query)` methods in `GmailToolService` base with `@Tool`.
         *   These methods will call the corresponding methods from the `GmailService`.
     *   **How to Test:**
         *   **`readEmail`:**
