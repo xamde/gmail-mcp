@@ -1,0 +1,151 @@
+. Microsoft Payments, Ihr Einkauf bei Microsoft Payments/ABBUCHUNG VOM PAYPAL-KONTO AWV-MELDEPFLICHT BEACHTEN HOTLINE BUNDESBANK (0800) 1234-111||GUTSCHRIFT ÜBERWEISUNG||166||Umbuchung
+028-0439861-1841929 AMZN Mktp DE 5ULN3LUWBIH97C27||FOLGELASTSCHRIFT||105
+028-2729512-3128344 AMZN Mktp DE 25P12U2MQVOYW23W||FOLGELASTSCHRIFT||105
+028-2917646-1852329 AMZN Mktp DE 54OMYERAPSO4IXT0||FOLGELASTSCHRIFT||105
+028-3315561-2066737 AMZN Mktp DE 7226ITPZ8G8I1JQP||FOLGELASTSCHRIFT||105
+028-3500311-9125167 AMZN Mktp DE 3ES99BHJA6JGINXJ||FOLGELASTSCHRIFT||105
+028-4185048-4726710 AMZN Mktp DE 6F3W8UYRBIZB298V||FOLGELASTSCHRIFT||105
+028-6691010-8136305 AMZN Mktp DE 4P5MK84L5IWPCVPI||FOLGELASTSCHRIFT||105
+028-7956228-5520341 AMZN Mktp DE 4DWRZC1RMVDSDWYA||FOLGELASTSCHRIFT||105
+028-8912655-4752362 Amazon.de 2QEED8ANBJOBTOC2||FOLGELASTSCHRIFT||105
+1031716651302/PP.5827.PP/. Microsoft Payments, Ihr Einkauf bei Microsoft Payments||FOLGELASTSCHRIFT||105||Umbuchung
+1031727283362/PP.5827.PP/. Microsoft Payments, Ihr Einkauf bei Microsoft Payments||FOLGELASTSCHRIFT||105||Umbuchung
+1032102187504/PP.5827.PP/. Microsoft Payments, Ihr Einkauf bei Microsoft Payments||FOLGELASTSCHRIFT||105||Umbuchung
+1035444434323/. GLS, Ihr Einkauf bei GLS||FOLGELASTSCHRIFT||105||Umbuchung
+1035704360640/PP.5827.PP/. OTTO Payments GmbH, Ihr Einkauf bei OTTO Payments GmbH||FOLGELASTSCHRIFT||105||Umbuchung
+1037194590317/. Google Payment Limited, Ihr Einkauf bei Google Payment Limited||FOLGELASTSCHRIFT||105||Umbuchung|==|null||Transfer||Umbuchung|==|1037194590317/. Google Payment Limited, Ihr Einkauf bei Google Payment Limited||FOLGELASTSCHRIFT||105||Umbuchung
+1038229007907/PP.5827.PP/. IONOS SE, Ihr Einkauf bei IONOS SE||FOLGELASTSCHRIFT||105||Umbuchung|==|null||Transfer||Umbuchung|==|1038229007907/PP.5827.PP/. IONOS SE, Ihr Einkauf bei IONOS SE||FOLGELASTSCHRIFT||105||Umbuchung
+1038571555666/PP.5827.PP/. Thomas Berndt, Ihr Einkauf bei Thomas Berndt||FOLGELASTSCHRIFT||105||Umbuchung
+1und1-paypal-deutschland@ipayment.de K742252877/005893207020 Rechnungsnummer: K742252877/005893207020||Payment
+1und1-paypal-deutschland@ipayment.de K742252877/005893662494 Rechnungsnummer: K742252877/005893662494||Payment
+1und1-paypal-deutschland@ipayment.de K742252877/005894362898 Invoice Number: K742252877/005894362898||Payment
+303-1135634-2193136 AMZN Mktp DE 4NDBCOS3FIB1VXFE||FOLGELASTSCHRIFT||105
+303-1976756-2112320 AMZN Mktp DE 56VQK568W8T6HYGP||FOLGELASTSCHRIFT||105
+303-8354635-1085907 AMZN Mktp DE 6198UPD8VCYWORK5||FOLGELASTSCHRIFT||105
+303-9477153-5449916 AMZN Mktp DE 4RDSJQR6TFRLRZQ9||FOLGELASTSCHRIFT||105
+303-9915940-2929901 Amazon.de 50P2C6FARDPM85JE||FOLGELASTSCHRIFT||105
+304-2827204-6825924 AMZN Mktp DE 275PRFV1CGZY1VSN||FOLGELASTSCHRIFT||105
+305-3424781-9859560 AMZN Mktp DE 2BBVPDZK1Y94NBFB||FOLGELASTSCHRIFT||105
+306-0608482-1841908 Amazon.de 52SJ24WKWX3F5ZRS||FOLGELASTSCHRIFT||105
+306-0608482-1841908 Amazon.de 5WEG44MG1HW9B2RP||FOLGELASTSCHRIFT||105
+306-0689391-4057942 Amazon.de 5L9XU8798KSK5H65||FOLGELASTSCHRIFT||105
+306-0904331-1989903 AMZN Mktp DE 7IEQ6TDJ2WGW720P||FOLGELASTSCHRIFT||105
+306-1175136-4634745 AMZN Mktp DE 2P5OM6MKYY20MZQY||FOLGELASTSCHRIFT||105
+306-1311103-7474761 AMZN Mktp DE 32F3TKVXJ6EMI6K9||FOLGELASTSCHRIFT||105
+306-1419521-1865914 AMZN Mktp DE 6NT9A8CML07VSO7U||FOLGELASTSCHRIFT||105
+306-1934559-9275547 AMZN Mktp DE HJ61G90XMERCT0VC||FOLGELASTSCHRIFT||105
+306-3255038-4093147 AMZN Mktp DE SC95977YBLTGC8ZQ||FOLGELASTSCHRIFT||105
+306-3349550-9593140 AMZN Mktp DE 3O3U3Z7LISAJ9QC2||FOLGELASTSCHRIFT||105
+306-4309916-4973963 AMZN Mktp DE 4T1XE41RUOT8THGZ||FOLGELASTSCHRIFT||105
+306-4772015-2393139 AMZN Mktp DE 50PGHFQRB2EH41BM||FOLGELASTSCHRIFT||105
+306-5624384-8210739 AMZN Mktp DE 61VVZY0GV1Q6BTOD||FOLGELASTSCHRIFT||105
+306-5668977-6284333 AMZN Mktp DE 104OHKZ3HTQTUFPR||FOLGELASTSCHRIFT||105
+306-6074884-4971510 AMZN Mktp DE 1Y37VRSU3DBR56O4||FOLGELASTSCHRIFT||105
+306-6338018-2813131 AMZN Mktp DE 6ACYPDJJSH6CZYB4||FOLGELASTSCHRIFT||105
+306-6352952-4153142 AMZN Mktp DE 3MH5S1PLANQKTOL7||FOLGELASTSCHRIFT||105
+306-7020811-1670708 AMZN Mktp DE 420S6ZLJXE7Z59RQ||FOLGELASTSCHRIFT||105
+306-7894196-9969919 AMZN Mktp DE 5GPDSA883X9MMSE8||FOLGELASTSCHRIFT||105
+306-7899223-1604360 AMZN Mktp DE 618BM3A7F6ESZ821||FOLGELASTSCHRIFT||105
+306-7928445-9313149 AMZN Mktp DE FZL4ZU8VX81LE62C||FOLGELASTSCHRIFT||105
+306-9545133-6217905 Amazon.de 2ZO57V0M3NQG05DF||FOLGELASTSCHRIFT||105
+306-9545133-6217905 Amazon.de 4SW71TAIKS6WNMFO||FOLGELASTSCHRIFT||105
+306-9555381-5234725 AMZN Mktp DE 1INYQQFUI8HAZNMV||FOLGELASTSCHRIFT||105
+306-9647840-0926705 AMZN Mktp DE 6JXSL0CBT8S4W1NT||FOLGELASTSCHRIFT||105
+3591730930412|35173/09304 M. 23.01.24 991||116
+Ausgleich Kreditkarte gem||direct-debit||Umbuchung
+BEEK-TRADE||e-commerce
+Erhardt am Ludwigsplatz||retail-store
+GALERIA KARLSRUHE||retail-store
+Google Payment IE LTD Goo||e-commerce
+Hatz Backereibetrieb 01||retail-store
+HW_Payout_Omnibus@paypal.com||Payment
+HYUNWOO SHIN||retail-store
+iahoward@gmail.com||Payment
+info@muji.de Notizbuch in Passgröße Dunkelblau, Punktraster Haftnotizen mit Checkliste 16605 Kerze in der Dose ‐ Meersalz Klappbares Whiteboard, A3/A4 Kleiderbeutel, M. Kleiderbeutel, M. eyJwcm9mSWQiOjM0Mzc0ODQsIm9yZElkIjoiMzAxOTcyMSIsImN1c0lkIjoiMCJ9||Payment|==|1035334311120/PP.5827.PP/. MUJI Deutschland GmbH, Ihr Einkauf bei MUJI Deutschland GmbH||FOLGELASTSCHRIFT||105
+Karl Schmitt & Co.KG||retail-store
+KREDITKARTENABRECHNUNG VISA -ABR. 493000XXXXXX8800||EIGENE KREDITKARTENABRECHNUNG||006||Umbuchung
+LS eatgreet im Alten||retail-store
+MICROSOFT*STORE||e-commerce
+MOCCASIN COFFEE||retail-store
+NR XXXX 3012 800.279.662 LUKAUFUMSATZ22.11 115.57085640ARN74279814327109271219915||Lastschrifteinzug||005
+NR XXXX 3012 BACKBLAZE.C USKAUFUMSATZ25.12 10.39170054ARN24000774360500005931822||Lastschrifteinzug||005
+NR XXXX 3012 HTTPSWWW.BA USKAUFUMSATZ20.11 110.80190308ARN24000774325000013329519||Lastschrifteinzug||005
+NR XXXX 3012 HTTPSWWW.BA USKAUFUMSATZ24.06 10.17191323ARN24000774176000016526905||Lastschrifteinzug||005
+NR XXXX 3012 HTTPSWWW.BA USKAUFUMSATZ24.08 10.25190737ARN24000774237000019056170||Lastschrifteinzug||005
+NR XXXX 3012 HTTPSWWW.BA USKAUFUMSATZ24.09 10.62193744ARN24000774268000016960517||Lastschrifteinzug||005
+NR XXXX 3012 HTTPSWWW.BA USKAUFUMSATZ24.10 10.32184350ARN24000774298000018204678||Lastschrifteinzug||005
+NR XXXX 3012 HTTPSWWW.BA USKAUFUMSATZ25.05 10.47182255ARN24000774146000015275147||Lastschrifteinzug||005
+NR XXXX 3012 HTTPSWWW.BA USKAUFUMSATZ25.07 10.55184059ARN24000774207000015573174||Lastschrifteinzug||005
+NR XXXX 3012 HTTPSWWW.BA USKAUFUMSATZ25.11 11.06183836ARN24000774330000012887544||Lastschrifteinzug||005
+NR XXXX 3012 HTTPSWWW.BA USKURS 1,0676000KAUFUMSATZ24.04 10,09182812ARN24000774115000012708808||Lastschrifteinzug||005
+NR XXXX 3012 HTTPSWWW.BA USKURS 1,0800000KAUFUMSATZ25.03 9,72165433ARN24000774085000009756220||Lastschrifteinzug||005
+NR XXXX 3012 HTTPSWWW.BA USKURS 1,0810000KAUFUMSATZ25.02 10,70165740ARN24000774056000005476448||Lastschrifteinzug||005
+NR XXXX 3012 HTTPSWWW.BA USKURS 1,0820000KAUFUMSATZ23.01 189,00164734ARN24492164023000031387089||Lastschrifteinzug||005
+NR XXXX 3012 HTTPSWWW.BA USKURS 1,0840000KAUFUMSATZ24.01 10,32165816ARN24492164024000032683915||Lastschrifteinzug||005
+null||...|==|null||Transfer||Umbuchung|==|paypal-gpl-hw-eur@google.com GS.2925-6272-1074 Rechnungsnummer: 329130768455676736||Payment|==|1037122835732/. Google Payment Limited, Ihr Einkauf bei Google Payment Limited||FOLGELASTSCHRIFT||105||Umbuchung
+null||Currency Conversion (debit)||Umbuchung
+null||Transfer
+null||Transfer|==|info@softwareplanet.eu Office für Mac 2024 Home and Business GNwnz2o2exJztRnSXDac7f3hT19bQSJe 22.99 EUR; 2024-12-05 Credit has been processed and claim is now closed. Please refer Dispute ID PP-R-RYC-552000986. Thank you. Invoice Number: MeinShop_117330||Refund|==|. Thomas Berndt, Ihr Einkauf bei Thomas Berndt/ABBUCHUNG VOM PAYPAL-KONTO AWV-MELDEPFLICHT BEACHTEN HOTLINE BUNDESBANK (0800) 1234-111||GUTSCHR. UEBERWEISUNG||166||Umbuchung
+null||Transfer||Umbuchung
+null||Transfer||Umbuchung|==|1und1-paypal-deutschland@ipayment.de K742252877/005902011376 Rechnungsnummer: K742252877/005902011376||Payment|==|1031903756036/PP.5827.PP/. IONOS SE, Ihr Einkauf bei IONOS SE||FOLGELASTSCHRIFT||105||Umbuchung|==|null||Transfer||Umbuchung|==|1und1-paypal-deutschland@ipayment.de K742252877/006540646078 Rechnungsnummer: K742252877/006540646078||Payment|==|1032524558327/PP.5827.PP/. IONOS SE, Ihr Einkauf bei IONOS SE||FOLGELASTSCHRIFT||105||Umbuchung|==|null||Transfer||Umbuchung|==|1und1-paypal-deutschland@ipayment.de K742252877/006180881154 Rechnungsnummer: K742252877/006180881154||Payment|==|1033121405492/PP.5827.PP/. IONOS SE, Ihr Einkauf bei IONOS SE||FOLGELASTSCHRIFT||105||Umbuchung|==|null||Transfer||Umbuchung|==|1und1-paypal-deutschland@ipayment.de K742252877/005942461629 Rechnungsnummer: K742252877/005942461629||Payment|==|1033758100477/PP.5827.PP/. IONOS SE, Ihr Einkauf bei IONOS SE||FOLGELASTSCHRIFT||105||Umbuchung|==|null||Transfer||Umbuchung|==|1und1-paypal-deutschland@ipayment.de K742252877/006092495985 Rechnungsnummer: K742252877/006092495985||Payment|==|1036921818778/PP.5827.PP/. IONOS SE, Ihr Einkauf bei IONOS SE||FOLGELASTSCHRIFT||105||Umbuchung|==|null||Transfer||Umbuchung|==|1und1-paypal-deutschland@ipayment.de K742252877/006391092134 Rechnungsnummer: K742252877/006391092134||Payment|==|1037561304357/PP.5827.PP/. IONOS SE, Ihr Einkauf bei IONOS SE||FOLGELASTSCHRIFT||105||Umbuchung|==|null||Transfer||Umbuchung|==|1und1-paypal-deutschland@ipayment.de K742252877/005874715774 Invoice Number: K742252877/005874715774||Payment|==|1038945992218/PP.5827.PP/. IONOS SE, Ihr Einkauf bei IONOS SE||FOLGELASTSCHRIFT||105||Umbuchung
+null||Transfer||Umbuchung|==|1und1-paypal-deutschland@ipayment.de K742252877/005962938129 Rechnungsnummer: K742252877/005962938129||Payment
+null||Transfer||Umbuchung|==|1und1-paypal-deutschland@ipayment.de K742252877/006091820645 Rechnungsnummer: K742252877/006091820645||Payment
+null||Transfer||Umbuchung|==|buchhaltung@shop-asp.de||Purchase
+null||Transfer||Umbuchung|==|info@softwareplanet.eu||Purchase||Umbuchung|==|info@softwareplanet.eu Office für Mac 2024 Home and Business GNwnz2o2exJztRnSXDac7f3hT19bQSJe 22.99 EUR; 2024-12-05 Credit has been processed and claim is now closed. Please refer Dispute ID PP-R-RYC-552000986. Thank you. Invoice Number: MeinShop_117330||Refund
+null||Transfer||Umbuchung|==|null||Currency Conversion (debit)||Umbuchung|==|1032881301374/PP.5827.PP/. RescueTime, Inc, Ihr Einkauf bei RescueTime, Inc||FOLGELASTSCHRIFT||105||Umbuchung
+null||Transfer||Umbuchung|==|office@markenkoffer.de Eagle Creek selection Pack-It Gear Cube M 36 cm - Packsack Eagle Creek selection Pack-It Reveal Cube Set XS/S/M 3tlg. - Packsack Rechnungsnummer: 1088380961||Refund|==|. Markenkoffer GmbH, Ihr Einkauf bei Markenkoffer GmbH/ABBUCHUNG VOM PAYPAL-KONTO AWV-MELDEPFLICHT BEACHTEN HOTLINE BUNDESBANK (0800) 1234-111||GUTSCHRIFT ÜBERWEISUNG||166||Umbuchung
+null||Transfer||Umbuchung|==|pay@ipill.de||Purchase||Gesundheit:Medikamente|==|1034184306591/PP.5827.PP/. Adler-Apotheke, Ihr Einkauf bei Adler-Apotheke||FOLGELASTSCHRIFT||105||Gesundheit:Medikamente
+null||Transfer||Umbuchung|==|paymentsadmin+ppmid3@patreon.com Patreon* Membership Invoice Number: charge1018299182||Payment|==|1038637154218/PP.5827.PP/. Patreon Ireland Limited, Ihr Einkauf bei Patreon Ireland Limited||FOLGELASTSCHRIFT||105||Umbuchung
+null||Transfer||Umbuchung|==|paymentsadmin+ppmid3@patreon.com Patreon* Membership Invoice Number: charge995557596||Payment|==|1037947264563/PP.5827.PP/. Patreon Ireland Limited, Ihr Einkauf bei Patreon Ireland Limited||FOLGELASTSCHRIFT||105||Umbuchung
+null||Transfer||Umbuchung|==|paymentsadmin+ppmid3@patreon.com Patreon* Membership Rechnungsnummer: charge785447136||Payment|==|1031644232509/PP.5827.PP/. Patreon Ireland Limited, Ihr Einkauf bei Patreon Ireland Limited||FOLGELASTSCHRIFT||105||Umbuchung
+null||Transfer||Umbuchung|==|paymentsadmin+ppmid3@patreon.com Patreon* Membership Rechnungsnummer: charge805383170||Payment|==|1032263805225/PP.5827.PP/. Patreon Ireland Limited, Ihr Einkauf bei Patreon Ireland Limited||FOLGELASTSCHRIFT||105||Umbuchung
+null||Transfer||Umbuchung|==|paymentsadmin+ppmid3@patreon.com Patreon* Membership Rechnungsnummer: charge824894597||Payment|==|1032858204402/PP.5827.PP/. Patreon Ireland Limited, Ihr Einkauf bei Patreon Ireland Limited||FOLGELASTSCHRIFT||105||Umbuchung
+null||Transfer||Umbuchung|==|paymentsadmin+ppmid3@patreon.com Patreon* Membership Rechnungsnummer: charge844682056||Payment|==|1033492013626/PP.5827.PP/. Patreon Ireland Limited, Ihr Einkauf bei Patreon Ireland Limited||FOLGELASTSCHRIFT||105||Umbuchung
+null||Transfer||Umbuchung|==|paymentsadmin+ppmid3@patreon.com Patreon* Membership Rechnungsnummer: charge929098852||Payment|==|1036012589821/PP.5827.PP/. Patreon Ireland Limited, Ihr Einkauf bei Patreon Ireland Limited||FOLGELASTSCHRIFT||105||Umbuchung
+null||Transfer||Umbuchung|==|paymentsadmin+ppmid3@patreon.com Patreon* Membership Rechnungsnummer: charge972782039||Payment|==|1037285979588/PP.5827.PP/. Patreon Ireland Limited, Ihr Einkauf bei Patreon Ireland Limited||FOLGELASTSCHRIFT||105||Umbuchung
+null||Transfer||Umbuchung|==|PayPal-GCLGPIL-PL-EUR@google.com Kahoot Plus for Family Monthly (Kahoot! DragonBox Learn Chess) Rechnungsnummer: 052227696382287378||Payment|==|1035927220414/PP.5827.PP/. Google Payment Ireland Ltd., Ihr Einkauf bei Google Payment Ireland Ltd.||FOLGELASTSCHRIFT||105||Umbuchung
+null||Transfer||Umbuchung|==|PayPal-GPIL-PL-EUR@google.com Kahoot Plus for Family Monthly (Kahoot! DragonBox Learn Chess) Invoice Number: 146979136193125649||Payment|==|1037855821344/PP.5827.PP/. Google Payment Ireland Limited, Ihr Einkauf bei Google Payment Ireland Limited||FOLGELASTSCHRIFT||105||Umbuchung
+null||Transfer||Umbuchung|==|PayPal-GPIL-PL-EUR@google.com Kahoot Plus for Family Monthly (Kahoot! DragonBox Learn Chess) Invoice Number: 270522957751431812||Payment|==|1038546622347/PP.5827.PP/. Google Payment Ireland Limited, Ihr Einkauf bei Google Payment Ireland Limited||FOLGELASTSCHRIFT||105||Umbuchung
+null||Transfer||Umbuchung|==|PayPal-GPIL-PL-EUR@google.com Kahoot Plus for Family Monthly (Kahoot! DragonBox Learn Chess) Invoice Number: 875612234829480098||Payment
+null||Transfer||Umbuchung|==|PayPal-GPIL-PL-EUR@google.com Kahoot Plus for Family Monthly (Kahoot! DragonBox Learn Chess) Rechnungsnummer: 283680907829730857||Payment|==|1037214670594/PP.5827.PP/. Google Payment Ireland Limited, Ihr Einkauf bei Google Payment Ireland Limited||FOLGELASTSCHRIFT||105||Umbuchung
+null||Transfer||Umbuchung|==|PayPal-GPIL-PL-EUR@google.com Kahoot Plus for Family Monthly (Kahoot! DragonBox Learn Chess) Rechnungsnummer: 313263904880835484||Payment|==|1032177708350/PP.5827.PP/. Google Payment Ireland Limited, Ihr Einkauf bei Google Payment Ireland Limited||FOLGELASTSCHRIFT||105||Umbuchung
+null||Transfer||Umbuchung|==|PayPal-GPIL-PL-EUR@google.com Kahoot Plus for Family Monthly (Kahoot! DragonBox Learn Chess) Rechnungsnummer: 423525995299640578||Payment|==|1036561149696/PP.5827.PP/. Google Payment Ireland Limited, Ihr Einkauf bei Google Payment Ireland Limited||FOLGELASTSCHRIFT||105||Umbuchung
+null||Transfer||Umbuchung|==|PayPal-GPIL-PL-EUR@google.com Kahoot Plus for Family Monthly (Kahoot! DragonBox Learn Chess) Rechnungsnummer: 622827451442842661||Payment|==|1032803604342/PP.5827.PP/. Google Payment Ireland Limited, Ihr Einkauf bei Google Payment Ireland Limited||FOLGELASTSCHRIFT||105||Umbuchung
+null||Transfer||Umbuchung|==|PayPal-GPIL-PL-EUR@google.com Kahoot Plus for Family Monthly (Kahoot! DragonBox Learn Chess) Rechnungsnummer: 657581165419746458||Payment|==|1034044570780/PP.5827.PP/. Google Payment Ireland Limited, Ihr Einkauf bei Google Payment Ireland Limited||FOLGELASTSCHRIFT||105||Umbuchung
+null||Transfer||Umbuchung|==|PayPal-GPIL-PL-EUR@google.com Kahoot Plus for Family Monthly (Kahoot! DragonBox Learn Chess) Rechnungsnummer: 960397226597230922||Payment|==|1033409175263/PP.5827.PP/. Google Payment Ireland Limited, Ihr Einkauf bei Google Payment Ireland Limited||FOLGELASTSCHRIFT||105||Umbuchung
+null||Transfer||Umbuchung|==|PayPal-GPIL-PL-EUR@google.com Kahoot Plus for Family Monthly (Kahoot! DragonBox Learn Chess) Rechnungsnummer: 999416971967491290||Payment|==|1035309879371/PP.5827.PP/. Google Payment Ireland Limited, Ihr Einkauf bei Google Payment Ireland Limited||FOLGELASTSCHRIFT||105||Umbuchung
+null||Transfer||Umbuchung|==|Paypal-itunes-EUR@group.apple.com Invoice Number: MN0FG4X3NKa0||Payment||Freizeit:Medien|==|1038717944292/PP.5827.PP/. Apple Services, Ihr Einkauf bei Apple Services||FOLGELASTSCHRIFT||105||Umbuchung
+null||Transfer||Umbuchung|==|paypal.de@voiapp.io Rechnungsnummer: e9126a28-31d7-4c4e-b600-08218fa91b3a||Payment|==|1034346941005/PP.5827.PP/. Voi Technology Germany GmbH, Ihr Einkauf bei Voi Technology Germany GmbH||FOLGELASTSCHRIFT||105||Umbuchung
+null||Transfer||Umbuchung|==|paypal@bolt.eu BOLT.EU R 2402181606 TaxifyGLOBAL:no_skin:1360650:CRBL96TP9WJPV832:paypal Rechnungsnummer: CRBL96TP9WJPV832||Payment|==|1032613950133/. Bolt Operations OU, Ihr Einkauf bei Bolt Operations OU||FOLGELASTSCHRIFT||105||Umbuchung
+null||Transfer||Umbuchung|==|paypal@otto-payments.de Google Pixel 7 Pro Smartphone (17,02 cm/6,7 Zoll, 256 GB Speicherplatz, 50 MP Kamera) 36 Monate Langzeitgarantie für Smartphones (inklusive) 6d6586d1-37d2-4a8e-ba86-413d77180fc1 Rechnungsnummer: R_fc8a6ba1-c072-4a65-bcc9-abcfe82b98a2_1||Refund|==|. OTTO Payments GmbH, Ihr Einkauf bei OTTO Payments GmbH/ABBUCHUNG VOM PAYPAL-KONTO AWV-MELDEPFLICHT BEACHTEN HOTLINE BUNDESBANK (0800) 1234-111||GUTSCHRIFT ÜBERWEISUNG||166||Umbuchung
+null||Transfer||Umbuchung|==|paypal@tasko.de||Purchase|==|1035296165997/PP.5827.PP/. tasko Products GmbH, Ihr Einkauf bei tasko Products GmbH||FOLGELASTSCHRIFT||105||Umbuchung
+null||Transfer||Umbuchung|==|paypal@thalia.de||Purchase||Freizeit:Medien|==|1031986778578/. Thalia Bucher GmbH, Ihr Einkauf bei Thalia Bucher GmbH||FOLGELASTSCHRIFT||105||Freizeit:Medien
+null||Transfer||Umbuchung|==|paypal@thalia.de||Purchase||Freizeit:Medien|==|1032766915446/. Thalia Bucher GmbH, Ihr Einkauf bei Thalia Bucher GmbH||FOLGELASTSCHRIFT||105||Freizeit:Medien
+null||Transfer||Umbuchung|==|steamgameseea@valvesoftware.com||Purchase|==|1037546331392/PP.5827.PP/. www.steampowered.com, Ihr Einkauf bei www.steampowered.com||FOLGELASTSCHRIFT||105||Umbuchung
+office@markenkoffer.de||Purchase|==|1035334955907/PP.5827.PP/. Markenkoffer GmbH, Ihr Einkauf bei Markenkoffer GmbH||FOLGELASTSCHRIFT||105
+OLEA GmbH||retail-store
+oliver.grigoleit@tier.app Temporary 7 day refund Rechnungsnummer: 5ead65e5-14fe-4b82-a7b2-a85d4428feff||Payment
+P.6454613985 AWV-MELDEPFLICHT BEACHTEN HOTLINE BUNDESBANK (0800) 1234-111||GUTSCHRIFT ÜBERWEISUNG||166
+P02-6571163-9757990 amzn.com/pmts 7869VP1O3FWIC94F||FOLGELASTSCHRIFT||105
+paymentsadmin+ppmid3@patreon.com Patreon* Membership Rechnungsnummer: charge865142182||Payment|==|1034114308758/PP.5827.PP/. Patreon Ireland Limited, Ihr Einkauf bei Patreon Ireland Limited||FOLGELASTSCHRIFT||105
+paymentsadmin+ppmid3@patreon.com Patreon* Membership Rechnungsnummer: charge885954579||Payment
+paymentsadmin+ppmid3@patreon.com Patreon* Membership Rechnungsnummer: charge910037744||Payment|==|1035384728271/PP.5827.PP/. Patreon Ireland Limited, Ihr Einkauf bei Patreon Ireland Limited||FOLGELASTSCHRIFT||105
+paymentsadmin+ppmid3@patreon.com Patreon* Membership Rechnungsnummer: charge951865146||Payment
+PayPal-GPIL-PL-EUR@google.com Kahoot Plus for Family Monthly (Kahoot! DragonBox Learn Chess) Rechnungsnummer: 028570112012214790||Payment
+PayPal-GPIL-PL-EUR@google.com Pings - 10 Pack (Feeld: Date & Meet New People) Rechnungsnummer: 178588329590264289||Payment
+PayPal-GPIL-PL-EUR@google.com Tinder Gold (Tinder Dating-App: Chat & Date) Rechnungsnummer: 140119966492275967||Payment
+paypal.de@voiapp.io Rechnungsnummer: 56c4a9ef-18e8-48a3-a9cc-8e17d9a0b810||Payment
+paypal.de@voiapp.io Rechnungsnummer: 9f493a22-021f-4318-8d74-eb3144e8d500||Payment
+paypal@thalia.de 13014712819 THADESHOPAP:no_skin:2282677:KC6WQ4FXNXH4FQX3:paypal Rechnungsnummer: 13014712819||Payment||Freizeit:Medien
+RAD & TAT||retail-store
+ReNR 240928881001||116
+Reparatur Level One EASY|DATUM 09.07.2024, 15.14 UHR||ONLINE-ÜBERWEISUNG||177
+SALAMANDER DEUTSCHLAND||retail-store||Haushalt:Bekleidung
+SERVICE NAVIGO|4042878||e-commerce
+SNCF TGV.COM||e-commerce||Umbuchung
+SP WILDLING SHOES||e-commerce
+Studierendenwerk Karlsruh||retail-store||Umbuchung
+VISA 4546 XXXX XXXX 3012AUSLANDSEINSATZENTGELTVISA CARD (DEBITKARTE)ARN24000774325000013329519||Entgelt||027
+VISA 4546 XXXX XXXX 3012AUSLANDSEINSATZENTGELTVISA CARD (DEBITKARTE)ARN24492164023000031387089||Entgelt||027
+Winter - Kaffee|mehr||retail-store
+Zahnarztpraxis Dr. Simone||retail-store
